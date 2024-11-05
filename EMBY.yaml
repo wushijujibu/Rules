@@ -1,0 +1,19 @@
+payload:
+  # 内容：EMBY分流规则
+  # 本地分流规则(相同规则下，本地规则将覆盖远程规则，优先生效)↓↓↓↓↓↓↓↓↓
+
+# > ↓↓↓↓↓↓↓↓↓（Emby的直连分流）↓↓↓↓↓↓↓↓↓
+#Emby-蘑菇
+  - DOMAIN-SUFFIX,ss.yeahfast.com,Direct
+
+#Emby-MICU
+  - DOMAIN-SUFFIX,micu.hk,Direct
+
+#Emby-AWA（SF+公益）
+  - DOMAIN-SUFFIX,awatv.de,Direct
+
+#Emby-地平线（DPX+好鸭）
+- DOMAIN-SUFFIX,110.40.36.36,Direct 
+- DOMAIN-SUFFIX,dpx2.niceduck.lol,Direct
+
+
