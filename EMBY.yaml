@@ -4,13 +4,13 @@ payload:
 
 # > ↓↓↓↓↓↓↓↓↓（Emby的直连分流）↓↓↓↓↓↓↓↓↓
 #Emby-蘑菇
-  - DOMAIN-SUFFIX,ss.yeahfast.com,Direct
+- DOMAIN-SUFFIX,ss.yeahfast.com,Direct
 
 #Emby-MICU
-  - DOMAIN-SUFFIX,micu.hk,Direct
+- DOMAIN-SUFFIX,micu.hk,Direct
 
 #Emby-AWA（SF+公益）
-  - DOMAIN-SUFFIX,awatv.de,Direct
+- DOMAIN-SUFFIX,awatv.de,Direct
 
 #Emby-地平线（DPX+好鸭）
 - DOMAIN-SUFFIX,110.40.36.36,Direct 
