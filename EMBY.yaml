@@ -1,8 +1,8 @@
 +rules:
   # 内容：EMBY分流规则
-  # 本地分流规则(相同规则下，本地规则将覆盖远程规则，优先生效)↓↓↓↓↓↓↓↓↓
+  # 说明："+"开头表示将分流规则插入到原规则前面
 
-# > ↓↓↓↓↓↓↓↓↓（Emby的直连分流）↓↓↓↓↓↓↓↓↓
+# ↓↓↓↓↓↓↓↓↓（Emby的直连分流）↓↓↓↓↓↓↓↓↓
 #Emby-蘑菇
 - DOMAIN-SUFFIX,ss.yeahfast.com,DIRECT
 
@@ -15,5 +15,3 @@
 #Emby-地平线（DPX+好鸭）
 - DOMAIN-SUFFIX,110.40.36.36,DIRECT 
 - DOMAIN-SUFFIX,dpx2.niceduck.lol,DIRECT
-
-
