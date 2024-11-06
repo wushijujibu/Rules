@@ -1,0 +1,19 @@
+# 内容：EMBY分流规则
+# 说明：直连分流
+
+# ↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓
+#Emby-蘑菇
+IP-CIDR,192.168.31.26/32
+DOMAIN-SUFFIX,ss.yeahfast.com
+
+#Emby-MICU
+DOMAIN-SUFFIX,micu.hk
+
+#Emby-AWA（SF+公益）
+DOMAIN-SUFFIX,awatv.de
+
+#Emby-地平线（DPX+好鸭）
+DOMAIN-SUFFIX,110.40.36.36
+DOMAIN-SUFFIX,dpx2.niceduck.lol
+
+
