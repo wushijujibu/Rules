@@ -4,7 +4,7 @@
 # ↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓
 #Emby-蘑菇
 IP-CIDR,192.168.31.26/32
-DOMAIN-SUFFIX,ss.yeahfast.com
+DOMAIN-SUFFIX,yeahfast.com
 
 #Emby-MICU
 DOMAIN-SUFFIX,micu.hk
