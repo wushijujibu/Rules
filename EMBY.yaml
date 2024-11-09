@@ -4,7 +4,7 @@
 
 # ↓↓↓↓↓↓↓↓↓（Emby的直连分流）↓↓↓↓↓↓↓↓↓
 #Emby-蘑菇
-- DOMAIN-SUFFIX,ss.yeahfast.com,DIRECT
+- DOMAIN-SUFFIX,yeahfast.com,DIRECT
 
 #Emby-MICU
 - DOMAIN-SUFFIX,micu.hk,DIRECT
