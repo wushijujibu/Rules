@@ -13,5 +13,5 @@
 - DOMAIN-SUFFIX,awatv.de,DIRECT
 
 #Emby-地平线（DPX+好鸭）
-- DOMAIN-SUFFIX,110.40.36.36,DIRECT 
-- DOMAIN-SUFFIX,dpx2.niceduck.lol,DIRECT
+- DOMAIN-SUFFIX,niceduck.lol,DIRECT 
+- DOMAIN-SUFFIX,emby.moe,DIRECT
