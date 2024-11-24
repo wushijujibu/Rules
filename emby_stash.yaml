@@ -1,0 +1,16 @@
+rules:
+  # 内容：EMBY分流规则
+  # 说明："+"开头表示将分流规则插入到原规则前面
+
+# ↓↓↓↓↓↓↓↓↓（Emby的直连分流）↓↓↓↓↓↓↓↓↓
+#Emby-蘑菇
+- DOMAIN-SUFFIX,yeahfast.com,DIRECT
+
+#Emby-MICU
+- DOMAIN-SUFFIX,micu.hk,DIRECT
+
+#Emby-AWA（SF+公益）
+- DOMAIN-SUFFIX,awatv.de,DIRECT
+
+#Emby-地平线（DPX+好鸭）
+- DOMAIN-SUFFIX,dpx2.niceduck.lol,DIRECT
