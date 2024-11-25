@@ -1,1 +1,23 @@
+# 下载配置后，需要自行添加机场订阅链接
+# 进入 设置，进入 配置文件，点击打勾刚刚下载的配置文件
+# 选择 编辑（不要选择 可视化编辑），创建副本（否则会被下一次自动更新覆盖），并且重新打勾副本
+# 再次进入副本编辑，下拉找到 #远程订阅（代理集合）的部分，使用机场订阅链接（Stash / Clash Premium / Clash 的订阅链接。其他类型不用试了，不可以），替换 url的范例链接
+# 保存即可
 
+#注意使用的时候，首页左上角，应该选中的是当前配置名称文件（或者副本copy）
+# 规则模式：rule（规则） / global（全局代理）/ direct（全局直连）
+
+# ↓↓↓↓↓↓↓↓↓（Emby的直连分流）↓↓↓↓↓↓↓↓↓
+rules:
+#Emby-蘑菇
+- IP-CIDR,192.168.31.26/32,DIRECT
+- RULE-SET,yeahfast.com,DIRECT
+
+#Emby-MICU
+- RULE-SET,micu.hk,DIRECT
+
+#Emby-AWA（SF+公益）
+- RULE-SET,awatv.de,DIRECT
+
+#Emby-地平线（DPX+好鸭）
+- RULE-SET,dpx2.niceduck.lol,DIRECT
