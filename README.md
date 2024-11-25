@@ -1,2 +1,2 @@
 # emby_list
-emby分流自用
+emby_loon适用于ios端代理软件，包括小火箭、Loon、Stash
