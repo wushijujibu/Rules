@@ -9,13 +9,13 @@
 rules:
 #Emby-蘑菇
 - IP-CIDR,192.168.31.26/32,DIRECT
-- RULE-SET,yeahfast.com,DIRECT
+- DOMAIN-SUFFIX,yeahfast.com,DIRECT
 
 #Emby-MICU
-- RULE-SET,micu.hk,DIRECT
+- DOMAIN-SUFFIX,micu.hk,DIRECT
 
 #Emby-AWA（SF+公益）
-- RULE-SET,awatv.de,DIRECT
+- DOMAIN-SUFFIX,awatv.de,DIRECT
 
 #Emby-地平线（DPX+好鸭）
-- RULE-SET,dpx2.niceduck.lol,DIRECT
+- DOMAIN-SUFFIX,dpx2.niceduck.lol,DIRECT
