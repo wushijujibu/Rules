@@ -3,6 +3,8 @@
 
 # ↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓
 IP-CIDR,192.168.31.26/32
+#蘑菇yp服
+DOMAIN-SUFFIX,yeahfast.com
 
 #Emby-MICU
 DOMAIN-SUFFIX,micu.hk
