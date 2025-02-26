@@ -1,4 +1,4 @@
 # emby_list
-1.EMBY适用于win版mihomo的覆写规则
-2.emby_loon适用于ios端代理APP的规则，包括小火箭、Loon、Stash
-3.lc_configfull适用于安卓端代理APP的规则，包括Flclash
+1.EMBY适用于win版mihomo
+2.lc_configfull适用于win版mihomo和安卓端Flclash
+3.emby_loon适用于ios端代理APP，包括小火箭、Loon、Stash
