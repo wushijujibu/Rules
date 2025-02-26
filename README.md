@@ -1,4 +1,4 @@
-# emby_list
+# Rules
 1.MihomoParty适用于win端mihomo，该规则基于墨鱼修改。
 2.configfull_Flclash适用于Android端Flclash，该规则基于Lanlan13-14修改。
 3.config_Stash适用于ios端Stash，该规则基于LanLan13-14修改。
