@@ -4,7 +4,7 @@ pr: &pr {type: select, proxies: [节点选择, 香港自动, 新加坡自动, �
 # 机场订阅，Airport_01/02/03名称不能重复,但可修改为自己喜欢的
 
 proxy-providers:
-  五毛:
+  airport1:
     type: http
     interval: 86400
     health-check:
@@ -12,12 +12,12 @@ proxy-providers:
       url: http://captive.apple.com/
       interval: 300
     proxy: 🟢 直连
-    url: "http://124.71.40.178/api/v1/client/subscribe?token=8d354e82d8fbb79a7ed18bc83738f9ae"
+    url: ""
     override:
-      additional-prefix: "[五毛]"
+      additional-prefix: "[airport1]"
       skip-cert-verify: true
       udp: true
-  哪吒:
+  airport2:
     type: http
     interval: 86400
     health-check:
@@ -25,74 +25,9 @@ proxy-providers:
       url: http://captive.apple.com/
       interval: 300
     proxy: 🟢 直连
-    url: "https://yjy.lol/s/cdc7c0842eda53123e0eb84d17490e75"
+    url: ""
     override:
-      additional-prefix: "[哪吒]"
-      skip-cert-verify: true
-      udp: true
-  千速喵:
-    type: http
-    interval: 86400
-    health-check:
-      enable: true
-      url: http://captive.apple.com/
-      interval: 300
-    proxy: 🟢 直连
-    url: "https://tmsdy.tsmpi.xyz/api/v1/client/subscribe?token=6bf4b9ac5220dac7aef46a068742d5f8"
-    override:
-      additional-prefix: "[千速喵]"
-      skip-cert-verify: true
-      udp: true   
-  八戒:
-    type: http
-    interval: 86400
-    health-check:
-      enable: true
-      url: http://captive.apple.com/
-      interval: 300
-    proxy: 🟢 直连
-    url: "https://bajie.la/api/v1/client/subscribe?token=3740a1e8ba886e88bb20115fbc39e9e8"
-    override:
-      additional-prefix: "[八戒]"
-      skip-cert-verify: true
-      udp: true     
-  廉价:
-    type: http
-    interval: 86400
-    health-check:
-      enable: true
-      url: http://captive.apple.com/
-      interval: 300
-    proxy: 🟢 直连
-    url: "https://subscription-gov.lianjiasub.work/api/v1/client/subscribe?token=6600a4a018cd998708050d4d81c49954"
-    override:
-      additional-prefix: "[廉价]"
-      skip-cert-verify: true
-      udp: true     
-  新狮云:
-    type: http
-    interval: 86400
-    health-check:
-      enable: true
-      url: http://captive.apple.com/
-      interval: 300
-    proxy: 🟢 直连
-    url: "https://client-sub.cloudlion.top/s/c865ed13490cf1af21f70a76bc8e1327"
-    override:
-      additional-prefix: "[新狮云]"
-      skip-cert-verify: true
-      udp: true     
-  开心云:
-    type: http
-    interval: 86400
-    health-check:
-      enable: true
-      url: http://captive.apple.com/
-      interval: 300
-    proxy: 香港自动
-    url: "https://kaikaixinxin.jiumaojiu.net/s/dc8b28c6db6f993c112a95c1cadad3d9"
-    override:
-      additional-prefix: "[开心云]"
+      additional-prefix: "[airport2]"
       skip-cert-verify: true
       udp: true
       
