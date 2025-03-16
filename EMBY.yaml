@@ -6,9 +6,12 @@
 #蘑菇yp服
 - DOMAIN-SUFFIX,yeahfast.com,DIRECT
 
-#Emby-MICU
+#桃子
+- DOMAIN-SUFFIX,embymv.link,DIRECT
+
+#MICU
 - DOMAIN-SUFFIX,micu.hk,DIRECT
 
-#Emby-AWA（SF+公益）
+#AWA（SF+公益）
 - DOMAIN-SUFFIX,awatv.de,DIRECT
 - DOMAIN-SUFFIX,811861.xyz,DIRECT
