@@ -6,9 +6,12 @@ IP-CIDR,192.168.31.26/32
 #蘑菇yp服
 DOMAIN-SUFFIX,yeahfast.com
 
-#Emby-MICU
+#桃子
+DOMAIN-SUFFIX,embymv.link
+
+#MICU
 DOMAIN-SUFFIX,micu.hk
 
-#Emby-AWA（SF+公益）
+#AWA（SF+公益）
 DOMAIN-SUFFIX,awatv.de
 DOMAIN-SUFFIX,811861.xyz
