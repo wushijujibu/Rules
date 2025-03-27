@@ -213,17 +213,8 @@ proxy-groups:
   - {name: 自动选择, type: url-test, include-all-providers: true, tolerance: 20, interval: 300, exclude-filter: "(?i)(automation|直连|群|邀请|返利|循环|官网|客服|网站|网址|获取|订阅|流量|到期|机场|下次|版本|官址|备用|过期|已用|联系|邮箱|工单|贩卖|通知|倒卖|防止|国内|地址|频道|无法|说明|使用|提示|特别|访问|支持|教程|关注|更新|作者|加入|USE|USED|TOTAL|EXPIRE|EMAIL|Panel|Channel|Author)", icon: "https://raw.githubusercontent.com/Lanlan13-14/Rules/refs/heads/main/icon/automation2.png"}
   - {name: 全部节点, type: select, include-all-providers: true, tolerance: 20, interval: 300, exclude-filter: "(?i)(直连|群|邀请|返利|循环|官网|客服|网站|网址|获取|订阅|流量|到期|机场|下次|版本|官址|备用|过期|已用|联系|邮箱|工单|贩卖|通知|倒卖|防止|国内|地址|频道|无法|说明|使用|提示|特别|访问|支持|教程|关注|更新|作者|加入|USE|USED|TOTAL|EXPIRE|EMAIL|Panel|Channel|Author)", icon: "https://raw.githubusercontent.com/Lanlan13-14/Rules/refs/heads/main/icon/all.png"}
 
-rules: 
-#蘑菇yp服
-  - DOMAIN-SUFFIX,yeahfast.com,DIRECT
-
-#Emby-MICU
-  - DOMAIN-SUFFIX,micu.hk,DIRECT
-
-#Emby-AWA（SF+公益）
-  - DOMAIN-SUFFIX,awatv.de,DIRECT
-  - DOMAIN-SUFFIX,811861.xyz,DIRECT
-  
+rules:  
+  - RULE-SET,embylist_domain,全球直连
   - RULE-SET,banAd_domain,隐私拦截
   - RULE-SET,ai!cn_domain,AI
   - RULE-SET,openai_domain,AI
@@ -250,6 +241,7 @@ rule-anchor:
   class: &class {type: http, interval: 86400, behavior: classical, format: text}
   
 rule-providers: 
+  embylist_domain: { <<: *class, url: "https://raw.githubusercontent.com/wushijujibu/Rules/refs/heads/main/emby_loon.list" }
   banAd_domain: { <<: *domain, url: "https://raw.githubusercontent.com/Lanlan13-14/Rules/refs/heads/main/rules/Domain/banAd.mrs" }
   private_domain: { <<: *domain, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/private.mrs" }
   ai!cn_domain: { <<: *domain, url: "https://github.com/666OS/YYDS/raw/main/mihomo/rules/category-ai-chat-!cn.mrs" }
