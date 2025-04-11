@@ -4,7 +4,7 @@ pr: &pr {type: select, proxies: [节点选择, 香港自动, 新加坡自动, �
 # 机场订阅，Airport_01/02/03名称不能重复,但可修改为自己喜欢的
 
 proxy-providers:
-  airport1:
+  Airport_01:
     type: http
     interval: 86400
     health-check:
@@ -12,12 +12,12 @@ proxy-providers:
       url: http://captive.apple.com/
       interval: 300
     proxy: 🟢 直连
-    url: ""
+    url: "订阅链接1"
     override:
-      additional-prefix: "[airport1]"
+      additional-prefix: "[机场名称1]"
       skip-cert-verify: true
       udp: true
-  airport2:
+  Airport_02:
     type: http
     interval: 86400
     health-check:
@@ -25,9 +25,9 @@ proxy-providers:
       url: http://captive.apple.com/
       interval: 300
     proxy: 🟢 直连
-    url: ""
+    url: "订阅链接2"
     override:
-      additional-prefix: "[airport2]"
+      additional-prefix: "[机场名称2]"
       skip-cert-verify: true
       udp: true
       
