@@ -7,7 +7,7 @@ IP-CIDR,192.168.31.26/32
 DOMAIN-SUFFIX,yeahfast.com
 
 #EchoFlix（原AWA-SF）
-DOMAIN-SUFFIX,emby.echoflix.vip
+#DOMAIN-SUFFIX,emby.echoflix.vip
 DOMAIN-SUFFIX,awatv.de
 DOMAIN-SUFFIX,811861.xyz
 
