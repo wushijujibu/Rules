@@ -61,7 +61,6 @@ rule-providers:
 rules:
   - RULE-SET,AdBlock,AdBlock
   - RULE-SET,OpenAi,OpenAi
-# - RULE-SET,Emby,Emby服务
   - RULE-SET,BiliBili,哔哩哔哩
   - RULE-SET,Bahamut,哔哩哔哩
   - RULE-SET,GlobalMedia,国际媒体
