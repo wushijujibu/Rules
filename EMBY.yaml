@@ -4,7 +4,7 @@
 
 # ↓↓↓↓↓↓↓↓↓（Emby的直连分流）↓↓↓↓↓↓↓↓↓
 #蘑菇yp服
-- DOMAIN-SUFFIX,yeahfast.com,DIRECT
+- DOMAIN-SUFFIX,mm.vo0.site,DIRECT
 - DOMAIN-SUFFIX,mm.herefor.top,DIRECT
 
 #EchoFlix（原AWA-SF）
