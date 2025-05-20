@@ -22,11 +22,6 @@ dns:
   nameserver:
     - quic://dns.alidns.com/dns-query
     - https://sm2.doh.pub/dns-query
-
-proxies: 
-  - name: "🟢 直连"
-    type: direct
-    udp: true
     
 # 锚点区
 Proxy_first: &Proxy_first {type: select, proxies: [节点选择, 香港节点, 新加坡节点, 日本节点, 台湾节点, 美国节点, 欧洲节点, 全部节点, 自建/家宽节点, 全球直连]}
@@ -59,6 +54,7 @@ proxy-groups:
   - {name: 台湾均衡, type: load-balance, include-all: true, strategy: consistent-hashing, hidden: true, filter: "(?i)(台|🇹🇼|TW|Taiwan)" ,exclude-filter: "(?i)(The_TW_balance|wcloud|0倍|0\\.1倍|0\\.01倍|0\\.3X|0\\.2x|0\\.5x|3X|2x|1\\.5x|traffic|plus)", icon: "https://pub-8feead0908f649a8b94397f152fb9cba.r2.dev/load-balance.png"}
   - {name: 美国均衡, type: load-balance, include-all: true, strategy: consistent-hashing, hidden: true, filter: "(?i)(美|🇺🇲|US|America|united States)" ,exclude-filter: "(?i)(The_US_balance|wcloud|0倍|0\\.1倍|0\\.01倍|0\\.3X|0\\.2x|0\\.5x|3X|2x|1\\.5x|russia|austria|plus|traffic|Australia|rus|aus)", icon: "https://pub-8feead0908f649a8b94397f152fb9cba.r2.dev/load-balance.png"}
 # 功能型代理组默认隐藏 start
+  - {name: 🟢 直连, type: select, hidden: true, proxies: [DIRECT]}
   - {name: 🔗 代理, type: select, hidden: true, proxies: [节点选择]}
   - {name: 🚫 拒绝, type: select, hidden: true, proxies: [REJECT]}
   - {name: ⚪ 丢弃, type: select, hidden: true, proxies: [REJECT-DROP]}
