@@ -37,7 +37,6 @@ proxy-groups:
 
 # 分流规则 
 rule-providers:
-  emby:        {behavior: classical, interval: 86400, format: yaml, type: http, url: https://raw.githubusercontent.com/wushijujibu/Rules/refs/heads/main/EMBY.yaml ,                                            path: ./ruleset/emby.yaml }
   AdBlock:     {behavior: domain,    interval: 86400, format: text, type: http, url: https://raw.githubusercontent.com/Cats-Team/AdRules/main/adrules_domainset.txt ,                                           path: ./ruleset/anti-ad-clash.txt }
   OpenAi:      {behavior: classical, interval: 86400, format: yaml, type: http, url: https://gist.githubusercontent.com/ddgksf2013/cb4121e8b5c5d865cc949cb8120320c4/raw/Ai.yaml ,                               path: ./ruleset/OpenAi.yaml       }
   BiliBili:    {behavior: classical, interval: 86400, format: yaml, type: http, url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/BiliBili/BiliBili.yaml ,                  path: ./ruleset/BiliBili.yaml     }
@@ -58,7 +57,6 @@ rule-providers:
 
 # 分流Policy 
 rules:
-  - RULE-SET,emby,DIRECT
   - RULE-SET,AdBlock,AdBlock
   - RULE-SET,OpenAi,OpenAi
   - RULE-SET,BiliBili,哔哩哔哩
