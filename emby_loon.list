@@ -2,7 +2,7 @@
 # 说明：直连分流
 
 # ↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓
-IP-CIDR,192.168.31.26/32
+#IP-CIDR,192.168.31.26/32
 #蘑菇yp服
 DOMAIN-SUFFIX,mm.vo0.site
 DOMAIN-SUFFIX,mm.herefor.top
