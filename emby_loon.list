@@ -4,8 +4,7 @@
 # ↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓
 #IP-CIDR,192.168.31.26/32
 #蘑菇yp服
-DOMAIN-SUFFIX,mm.vo0.site
-DOMAIN-SUFFIX,mm.herefor.top
+DOMAIN-SUFFIX,vo0.site
 
 #EchoFlix（原AWA-SF）
 DOMAIN-SUFFIX,echoflix.vip
