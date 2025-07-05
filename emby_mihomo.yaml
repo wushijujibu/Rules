@@ -3,6 +3,7 @@
   # 说明："+"开头表示将分流规则插入到原规则前面
 
 # ↓↓↓↓↓↓↓↓↓（Emby的直连分流）↓↓↓↓↓↓↓↓↓
+- DOMAIN-SUFFIX,lcnas.top,DIRECT
 #蘑菇yp服
 - DOMAIN-SUFFIX,vo0.site,DIRECT
 
