@@ -5,6 +5,8 @@ Direct_first: &Direct_first {type: select, proxies: [全球直连, 节点选择,
 
 Include_all: &Include_all {type: select, proxies: [节点选择, 香港节点, 新加坡节点, 日本节点, 台湾节点, 美国节点, 欧洲节点, 全部节点, 自建/家宽节点, 全球直连], include-all: true, exclude-filter: "(?i)(🟢 直连)"}
 
+Urltest_Base: &Urltest_Base {type: url-test, include-all: true, tolerance: 20, interval: 300, max-failed-times: 1, hidden: true}
+
 PProviders: &PProviders {type: http, interval: 86400, health-check: {enable: true, url: 'https://www.apple.com/library/test/success.html', interval: 300}, filter: '^(?!.*(拒绝|直连|群|邀请|返利|循环|官网|客服|网站|网址|获取|订阅|流量|到期|机场|下次|版本|官址|备用|过期|已用|联系|邮箱|工单|贩卖|通知|倒卖|防止|国内|地址|频道|无法|说明|提示|特别|访问|支持|教程|关注|更新|作者|加入|USE|USED|TOTAL|EXPIRE|EMAIL|Panel|Channel|Author|traffic))'}
 
 ##############################################
@@ -31,8 +33,6 @@ proxy-providers:
       udp: true
    
 ##############################################
-
-
 # 用于下载订阅时指定UA
 global-ua: clash.meta
 
@@ -135,15 +135,19 @@ dns:
   fake-ip-filter:
     - "rule-set:bank_cn_domain,ai_cn_domain,xiaomi_domain,pt_cn_domain,public-tracker_domain,115_domain,aliyun_domain,direct_domain,iptv_domain,private_domain,cn_domain"
   default-nameserver:
-    - 223.5.5.5
     - 119.29.29.29
+    - 180.184.1.1
   proxy-server-nameserver:
-    - quic://dns.alidns.com/dns-query
-    - https://sm2.doh.pub/dns-query 
+    - https://doh.pub/dns-query
+    - https://101.34.254.32/ihtw
+  direct-nameserver:
+    - https://doh.pub/dns-query
+    - https://101.34.254.32/ihtw
   nameserver:
-    - quic://dns.alidns.com/dns-query
-    - https://sm2.doh.pub/dns-query
-
+    - https://dns.google/dns-query
+    - https://dns.cloudflare.com/dns-query
+  nameserver-policy:
+    "rule-set:banAd_domain": rcode://success
 proxies: 
   - name: "🟢 直连"
     type: direct
