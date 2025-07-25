@@ -4,14 +4,12 @@
 # ↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓
 #IP-CIDR,192.168.31.26/32
 DOMAIN-SUFFIX,lcnas.top
+
 #蘑菇yp服
 DOMAIN-SUFFIX,vo0.site
 
 #EchoFlix（原AWA-SF）
 DOMAIN-SUFFIX,echoflix.vip
-
-#桃子
-DOMAIN-SUFFIX,embymv.link
 
 #MICU
 DOMAIN-SUFFIX,micu.hk
