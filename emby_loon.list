@@ -2,14 +2,14 @@
 # 说明：直连分流
 
 # ↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓
-#IP-CIDR,192.168.31.26/32
+IP-CIDR,192.168.31.26/32
 DOMAIN-SUFFIX,lcnas.top
 
 #蘑菇yp服
 DOMAIN-SUFFIX,vo0.site
 
 #EchoFlix（原AWA-SF）
-DOMAIN-SUFFIX,echoflix.vip
+#DOMAIN-SUFFIX,echoflix.vip
 
 #MICU
 DOMAIN-SUFFIX,micu.hk
