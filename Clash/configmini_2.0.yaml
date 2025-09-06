@@ -139,15 +139,13 @@ dns:
     - 180.184.1.1
   proxy-server-nameserver:
     - https://doh.pub/dns-query
-    - https://101.34.254.32/ihtw
+    - https://223.5.5.5/dns-query#h3=true
   direct-nameserver:
     - https://doh.pub/dns-query
-    - https://101.34.254.32/ihtw
+    - https://223.5.5.5/dns-query#h3=true
   nameserver:
     - https://dns.google/dns-query
     - https://dns.cloudflare.com/dns-query
-  nameserver-policy:
-    "rule-set:banAd_domain": rcode://success
 proxies: 
   - name: "🟢 直连"
     type: direct
