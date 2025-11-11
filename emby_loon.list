@@ -8,12 +8,11 @@ DOMAIN-SUFFIX,lcnas.top
 #蘑菇yp服
 DOMAIN-SUFFIX,vo0.site
 
-#EchoFlix（原AWA-SF）
-#DOMAIN-SUFFIX,echoflix.vip
-
 #琴鸟
-#DOMAIN-SUFFIX,lyrebirdemby.online
+DOMAIN-SUFFIX,lyrebirdemby.online
+IP-CIDR,188.172.228.65/32
 
 #MICU
 DOMAIN-SUFFIX,micu.hk
+
 
