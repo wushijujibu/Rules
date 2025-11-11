@@ -9,8 +9,9 @@
 #蘑菇yp服
 - DOMAIN-SUFFIX,vo0.site,DIRECT
 
-#EchoFlix（原AWA-SF）
-- DOMAIN-SUFFIX,echoflix.vip,DIRECT
+#琴鸟
+- DOMAIN-SUFFIX,lyrebirdemby.online,DIRECT
+- IP-CIDR,188.172.228.65/32,DIRECT
 
 #MICU
 - DOMAIN-SUFFIX,micu.hk,DIRECT
