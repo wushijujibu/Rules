@@ -18,11 +18,11 @@ proxy-providers:
 #    url: " "
 #    <<: *p
     
-  XXX:
+  节点精选:
     <<: *p
     url: ""
     override:
-      additional-prefix: "[XXX]"
+      additional-prefix: "[]"
       skip-cert-verify: true
       udp: true                      
 ##############################################
@@ -213,7 +213,7 @@ rule-anchor:
 
 rule-providers: 
   embylist_domain: { <<: *class, url: "https://raw.githubusercontent.com/wushijujibu/Rules/refs/heads/main/emby_loon.list" }
-  banAd_domain: { <<: *domain, url: "https://adrules.top/adrules.list" }
+  banAd_domain: { <<: *class, url: "https://adrules.top/adrules.list" }
   private_domain: { <<: *domain, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/private.mrs"}
   proxylite: { <<: *class, url: "https://raw.githubusercontent.com/qichiyuhub/rule/refs/heads/main/proxy.list"}
   ai: {  <<: *domain, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/category-ai-!cn.mrs" }
