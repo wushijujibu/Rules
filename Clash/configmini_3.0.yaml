@@ -14,57 +14,17 @@ p: &p
     exclude-type: "hysteria2"
 
 proxy-providers:
-#  良心云:
+#  链接名称:
 #    url: " "
 #    <<: *p
     
-  塞西尔6:
+  XXX:
     <<: *p
-    url: "https://connect.sxr.monster/api/v1/client/subscribe?token=9d138e00a939c8dfe89a576a846e624c"
+    url: ""
     override:
-      additional-prefix: "[塞西尔6]"
+      additional-prefix: "[XXX]"
       skip-cert-verify: true
-      udp: true
-
-  好鸭:
-    <<: *p
-    url: "https://go.duckedu.cc/data/resources/link/obtain?token=82b3431d87e75f583073e99a802e3bae"
-    override:
-      additional-prefix: "[好鸭]"
-      skip-cert-verify: true
-      udp: true
-      
-  良心云:
-    <<: *p
-    url: "https://liangxin.xyz/api/v1/liangxin?OwO=b9c891e06a08c5b1506fbc48de1278ca"
-    override:
-      additional-prefix: "[良心云]"
-      skip-cert-verify: true
-      udp: true
-
-  中国国际:
-    <<: *p
-    url: "https://www.carpetpacific.com/blanket/api/v1/client/subscribe?token=04c64ba519d491a330d83a7348db326e"
-    override:
-      additional-prefix: "[中国国际]"
-      skip-cert-verify: true
-      udp: true
-
-  五毛:
-    <<: *p
-    url: "http://38.59.246.49:60231/5L2g55yL5L2g5aaI5ZGi77yf/d98dee27b80563bdbd9c21d087233111"
-    override:
-      additional-prefix: "[五毛]"
-      skip-cert-verify: true
-      udp: true
-      
-  KTM2:
-    <<: *p
-    url: "https://ktmcloud.tel/api/v1/client/subscribe?token=314d8b792abcd3ec11ec0663e65a7e42"
-    override:
-      additional-prefix: "[KTM2]"
-      skip-cert-verify: true
-      udp: true                       
+      udp: true                      
 ##############################################
 
 
