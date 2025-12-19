@@ -20,7 +20,7 @@ proxy-providers:
     
   节点精选:
     <<: *p
-    url: "https://gist.githubusercontent.com/wushijujibu/19b85e6b854020e1ee4681c2c22a9c57/raw/sub_best"
+    url: ""
     override:
       additional-prefix: ""
       skip-cert-verify: true
