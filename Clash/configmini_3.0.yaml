@@ -25,9 +25,8 @@ proxy-providers:
       additional-prefix: ""
       skip-cert-verify: true
       udp: true                      
+
 ##############################################
-
-
 # 节点信息
 proxies:
   - {name: 直连, type: direct}
@@ -45,11 +44,11 @@ ipv6: true
 unified-delay: true
 tcp-concurrent: true
 # interface-name: enp6s18
-log-level: warning
-find-process-mode: 'strict'
-global-client-fingerprint: chrome
-keep-alive-idle: 600
-keep-alive-interval: 15
+log-level: error
+find-process-mode: 'off'
+global-client-fingerprint: ios
+keep-alive-idle: 300
+keep-alive-interval: 75
 profile:
   store-selected: true
   store-fake-ip: true
@@ -75,6 +74,19 @@ sniffer:
   skip-domain:
     - "Mijia Cloud"
     - "+.push.apple.com"
+  skip-dst-address:
+    - 91.105.192.0/23
+    - 91.108.4.0/22
+    - 91.108.8.0/21
+    - 91.108.16.0/21
+    - 91.108.56.0/22
+    - 95.161.64.0/20
+    - 149.154.160.0/20
+    - 185.76.151.0/24
+    - 2001:67c:4e8::/48
+    - 2001:b28:f23c::/47
+    - 2001:b28:f23f::/48
+    - 2a0a:f280::/32
 
 # 入站  
 tun:
@@ -85,9 +97,9 @@ tun:
   #使用nikki，混入全部不修改的情况，开启接口指定为nikki
   #使用仅内核自行修改下面三项为true
   #device: nikki
-  auto-route: false
-  auto-redirect: false
-  auto-detect-interface: false
+  auto-route: true
+  auto-redirect: true
+  auto-detect-interface: true
 
 # DNS模块
 dns:
@@ -97,6 +109,7 @@ dns:
   respect-rules: false
   enhanced-mode: fake-ip
   fake-ip-range: 28.0.0.1/8
+  fake-ip-range6: 2400::1/64
   fake-ip-filter-mode: blacklist
   fake-ip-filter:
     - "*"
@@ -224,10 +237,10 @@ rule-anchor:
 
 rule-providers: 
   embylist_domain: { <<: *class, url: "https://raw.githubusercontent.com/wushijujibu/Rules/refs/heads/main/emby_loon.list" }
-  banAd_domain: { <<: *domain, url: "https://raw.githubusercontent.com/Cats-Team/AdRules/main/adrules-mihomo.mrs" }
+  banAd_domain: { <<: *class, url: "https://adrules.top/adrules.list" }
   private_domain: { <<: *domain, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/private.mrs"}
   proxylite: { <<: *class, url: "https://raw.githubusercontent.com/qichiyuhub/rule/refs/heads/main/proxy.list"}
-  ai: {  <<: *domain, url: "https://raw.githubusercontent.com/JohnsonRan/CRules/mihomo/resources/rules/ai.mrs" }
+  ai: {  <<: *domain, url: "https://ruleset.ihtw.moe/resources/rules/ai.mrs" }
   youtube_domain: { <<: *domain, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/youtube.mrs"}
   google_domain: { <<: *domain, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/google.mrs"}
   github_domain: { <<: *domain, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/github.mrs"}
