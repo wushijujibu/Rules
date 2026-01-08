@@ -60,7 +60,7 @@ proxy-groups:
   - {name: 日本故转, <<: *FallBack, filter: "(?=.*(日|JP|(?i)Japan))^((?!(港|台|韩|新|美)).)*$", icon: "https://raw.githubusercontent.com/erdongchanyo/icon/main/Policy-Country/JP.png"}
   - {name: 美国故转, <<: *FallBack, filter: "(?=.*(美|US|(?i)States|America))^((?!(港|台|韩|新|日)).)*$", icon: "https://raw.githubusercontent.com/erdongchanyo/icon/main/Policy-Country/US.png"}
   - {name: 东南亚, <<: *Select, filter: "(?i)马来|印度尼西亚|印尼|菲律宾|印度|india|缅甸|柬埔寨", icon: "https://raw.githubusercontent.com/fmz200/wool_scripts/main/icons/apps/tajmahal.png"}
-  - {name: 欧洲节点, <<: *Select, filter: "(?i)英国|英|uk|unitedkingdom|united kingdom|德国|德|germany|法兰西|法|france|法国|意大利|意|italy|荷兰|荷|netherlands|西班牙|spain|瑞士|瑞典|sweden|switzerland|爱尔兰|ireland|波兰|奥地利|葡萄牙|比利时|爱沙尼亚|芬兰|立陶宛|乌克兰|丹麦|希腊", icon: "https://raw.githubusercontent.com/lige47/QuanX-icon-rule/main/icon/EuropeanUnion(1).png"}
+  - {name: 欧洲节点, <<: *Select, filter: "(?i)英国|英|uk|unitedkingdom|united kingdom|德国|德|germany|法兰西|法|france|法国|意大利|意|italy|荷兰|荷|netherlands|西班牙|spain|瑞士|瑞典|sweden|switzerland|爱尔兰|ireland|波兰|奥地利|葡萄牙|比利时|爱沙尼亚|芬兰|立陶宛|乌克兰|丹麦|希腊", icon: "https://raw.githubusercontent.com/fmz200/wool_scripts/main/icons/apps/EiffelTower.png"}
   - {name: 小众节点, <<: *Select, filter: "(?i)俄罗斯|俄|russia|土耳其|土|turkey|巴西|巴|brazil|阿根廷|argentina|墨西哥|mexico|南非|southafrica|澳大利亚|澳大|australia|新西兰|newzealand|阿联酋|uae|unitedarabemirates|united arab emirates|加拿大|canada|纳米比亚|黎巴嫩|伊朗|哈萨克斯坦|保加利亚", icon: "https://raw.githubusercontent.com/Semporia/Hand-Painted-icon/master/Universal/Airport.png"}
 
   # - {name: 香港自动, *UrlTest, filter: "(?=.*(港|HK|(?i)Hong))^((?!(台|日|韩|新|深|美)).)*$"}
@@ -157,6 +157,7 @@ rule-providers:
   telegram_ip: { <<: *ip, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geoip/telegram.mrs"}
   #netflix_ip: { <<: *ip, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geoip/netflix.mrs"}
   #apple_ip: {<<: *ip, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo-lite/geoip/apple.mrs"}
+
 
 
 
