@@ -35,11 +35,11 @@ dns:
 ### 策略组基础配置
 # 手动选择
 # 自动选择 [每 300 秒一次惰性健康检查，容差 50ms，时延超过 2 秒判定为失败，失败 3 次自动触发健康检查]
-# 自动回退 [每 300 秒一次惰性健康检查，时延超过 2 秒判定为失败，失败 3 次自动触发健康检查]
+# 自动回退 [每 300 秒一次惰性健康检查，时延超过 300ms  判定为失败，失败 3 次自动触发健康检查]
 # 负载均衡 [每 300 秒一次惰性健康检查，时延超过 2 秒判定为失败，失败 3 次自动触发健康检查]
 Select: &Select {type: select, url: 'https://www.gstatic.com/generate_204', disable-udp: false, hidden: false, include-all: true}
 UrlTest: &UrlTest {type: url-test, url: 'https://www.gstatic.com/generate_204', disable-udp: false, hidden: false, include-all: true, interval: 300, lazy: true, tolerance: 50, timeout: 2000, max-failed-times: 3}
-FallBack: &FallBack {type: fallback, url: 'https://www.gstatic.com/generate_204',disable-udp: false, hidden: false, include-all: true, interval: 300, lazy: true, timeout: 2000,  max-failed-times: 3}
+FallBack: &FallBack {type: fallback, url: 'https://www.gstatic.com/generate_204',disable-udp: false, hidden: false, include-all: true, interval: 300, lazy: true, timeout: 300,  max-failed-times: 3}
 # LoadBalance: &LoadBalance {type: load-balance, url: 'https://www.gstatic.com/generate_204', disable-udp: false, hidden: false, include-all: true, interval: 300, lazy: true, strategy: consistent-hashing, timeout: 2000, max-failed-times: 3}
 
 
