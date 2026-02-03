@@ -71,8 +71,8 @@ proxy-groups:
   - {name: TikTok, type: select, proxies: [默认代理, 香港故转, 台湾故转, 狮城故转, 日本故转, 美国故转, 全部节点, 直连], icon: "https://raw.githubusercontent.com/Semporia/Hand-Painted-icon/master/Social_Media/TikTok.png"}
   - {name: YouTube, type: select, proxies: [默认代理, 香港故转, 台湾故转, 狮城故转, 日本故转, 美国故转, 全部节点, 直连], icon: "https://raw.githubusercontent.com/Semporia/Hand-Painted-icon/master/Social_Media/YouTube.png"}
   - {name: Telegram, type: select, proxies: [默认代理, 香港故转, 台湾故转, 狮城故转, 日本故转, 美国故转, 全部节点, 直连], icon: "https://raw.githubusercontent.com/Semporia/Hand-Painted-icon/master/Social_Media/Telegram.png"}  
-  - {name: Google, type: select, proxies: [默认代理, 香港故转, 台湾故转, 狮城故转, 日本故转, 美国故转, 全部节点, 直连], icon: "https://raw.githubusercontent.com/Semporia/Hand-Painted-icon/master/Google_Suite/Google.png"}
-  - {name: ChatGPT, type: select, proxies: [默认代理, 香港故转, 台湾故转, 狮城故转, 日本故转, 美国故转, 全部节点, 直连], icon: "https://raw.githubusercontent.com/Semporia/Hand-Painted-icon/master/Social_Media/Reddit.png"}
+  - {name: Google, type: select, proxies: [狮城故转, 默认代理, 香港故转, 台湾故转, 日本故转, 美国故转, 全部节点, 直连], icon: "https://raw.githubusercontent.com/Semporia/Hand-Painted-icon/master/Google_Suite/Google.png"}
+  - {name: ChatGPT, type: select, proxies: [狮城故转, 默认代理, 香港故转, 台湾故转, 日本故转, 美国故转, 全部节点, 直连], icon: "https://raw.githubusercontent.com/Semporia/Hand-Painted-icon/master/Social_Media/Reddit.png"}
   - {name: GitHub, type: select, proxies: [默认代理, 香港故转, 台湾故转, 狮城故转, 日本故转, 美国故转, 全部节点, 直连], icon: "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/icon/qure/color/GitHub.png"}
   - {name: FCM, type: select, proxies: [直连], icon: "https://raw.githubusercontent.com/fmz200/wool_scripts/main/icons/apps/FishChips_01.png"} 
   #- {name: OneDrive, type: select, proxies: [默认代理, 香港故转, 台湾故转, 狮城故转, 日本故转, 美国故转, 全部节点, 直连]}
@@ -154,6 +154,7 @@ rule-providers:
   telegram_ip: { <<: *ip, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geoip/telegram.mrs"}
   #netflix_ip: { <<: *ip, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geoip/netflix.mrs"}
   #apple_ip: {<<: *ip, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo-lite/geoip/apple.mrs"}
+
 
 
 
