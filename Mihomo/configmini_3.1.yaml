@@ -35,11 +35,11 @@ dns:
 ### 策略组基础配置
 # 手动选择
 # 自动选择 [每 300 秒一次惰性健康检查，容差 50ms，时延超过 2 秒判定为失败，失败 3 次自动触发健康检查]
-# 自动回退 [每 300 秒一次惰性健康检查，时延超过 300ms  判定为失败，失败 3 次自动触发健康检查]
+# 故障转移 [每 60 秒一次惰性健康检查，时延超过 300ms 判定为失败，失败 3 次自动触发健康检查]
 # 负载均衡 [每 300 秒一次惰性健康检查，时延超过 2 秒判定为失败，失败 3 次自动触发健康检查]
 Select: &Select {type: select, url: 'https://www.gstatic.com/generate_204', disable-udp: false, hidden: false, include-all: true}
 UrlTest: &UrlTest {type: url-test, url: 'https://www.gstatic.com/generate_204', disable-udp: false, hidden: false, include-all: true, interval: 300, lazy: true, tolerance: 50, timeout: 2000, max-failed-times: 3}
-FallBack: &FallBack {type: fallback, url: 'https://www.gstatic.com/generate_204',disable-udp: false, hidden: false, include-all: true, interval: 300, lazy: true, timeout: 300,  max-failed-times: 3}
+FallBack: &FallBack {type: fallback, url: 'https://www.gstatic.com/generate_204',disable-udp: false, hidden: false, include-all: true, interval: 60, lazy: true, timeout: 300,  max-failed-times: 3}
 # LoadBalance: &LoadBalance {type: load-balance, url: 'https://www.gstatic.com/generate_204', disable-udp: false, hidden: false, include-all: true, interval: 300, lazy: true, strategy: consistent-hashing, timeout: 2000, max-failed-times: 3}
 
 
@@ -86,15 +86,15 @@ proxy-groups:
   - {name: 全部节点, type: select, include-all: true, icon: "https://pub-8feead0908f649a8b94397f152fb9cba.r2.dev/global.png"}
 
 rules: 
-  - AND,(AND,(DST-PORT,443),(NETWORK,UDP)),(NOT,((GEOSITE,cn))),REJECT
-  - AND,(AND,(DST-PORT,443),(NETWORK,UDP)),(NOT,((GEOIP,CN))),REJECT
-
   - RULE-SET,embylist_domain,直连
   - RULE-SET,banAd_domain,隐私拦截
-  - RULE-SET,telegram_ip,Telegram,no-resolve
-  - DOMAIN-SUFFIX,googleapis.cn,默认代理
+  - RULE-SET,tiktok_domain,TikTok
+  - RULE-SET,telegram_ip,Telegram,no-resolve 
+  - RULE-SET,telegram_domain,Telegram 
+  - RULE-SET,youtube_domain,YouTube
+  - RULE-SET,google_domain,Google
   - RULE-SET,google_ip,Google,no-resolve
-
+  
   - DOMAIN-SUFFIX,skk.moe,DIRECT
   - DOMAIN-SUFFIX,challenges.cloudflare.com,DIRECT
   - DOMAIN-SUFFIX,edge.microsoft.com,DIRECT
@@ -109,16 +109,13 @@ rules:
   - RULE-SET,proxylite,默认代理
   - RULE-SET,ai,ChatGPT
   - RULE-SET,github_domain,GitHub
-  - RULE-SET,youtube_domain,YouTube
-  - RULE-SET,google_domain,Google
+
   #- RULE-SET,onedrive_domain,OneDrive
   #- RULE-SET,microsoft_domain,Microsoft
   #- RULE-SET,apple_domain,直连
-  - RULE-SET,tiktok_domain,TikTok
-  - RULE-SET,telegram_domain,Telegram
+  #- RULE-SET,apple_ip,直连  
   #- RULE-SET,netflix_domain,NETFLIX
   #- RULE-SET,paypal_domain,PayPal
-  #- RULE-SET,apple_ip,直连
   #- RULE-SET,netflix_ip,NETFLIX
   
   - RULE-SET,geolocation-!cn,默认代理
@@ -157,6 +154,7 @@ rule-providers:
   telegram_ip: { <<: *ip, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geoip/telegram.mrs"}
   #netflix_ip: { <<: *ip, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geoip/netflix.mrs"}
   #apple_ip: {<<: *ip, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo-lite/geoip/apple.mrs"}
+
 
 
 
