@@ -1,4 +1,5 @@
 # Rules
+【本规则基于qichiyuhub修改】
 1.Clash适用于Android端Flclash。
 2.Mihomo为win端Sparkle的覆写规则（可通过sub文件管理功能转换成clash能用的url）。
 
