@@ -5,14 +5,12 @@
 IP-CIDR,192.168.31.26/32
 DOMAIN-SUFFIX,lcnas.top
 
-#蘑菇yp服
-DOMAIN-SUFFIX,vo0.site
-
 #琴鸟
 DOMAIN-SUFFIX,lyrebirdemby.online
 IP-CIDR,188.172.228.65/32
 
 #MICU
 DOMAIN-SUFFIX,micu.hk
+
 
 
