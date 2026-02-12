@@ -130,7 +130,7 @@ rule-anchor:
   
 rule-providers: 
   embylist_domain: { <<: *class, url: "https://raw.githubusercontent.com/wushijujibu/Rules/refs/heads/main/emby_loon.list" }
-  banAd_domain: { <<: *domain, url: "https://raw.githubusercontent.com/217heidai/adblockfilters/main/rules/adblockmihomolite.mrs" }
+  banAd_domain: { <<: *domain, url: "https://cdn.gh-proxy.org/https://raw.githubusercontent.com/echs-top/proxy/main/rules/mrs/AWAvenue-Ads_domain.mrs" }
   private_domain: { <<: *domain, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/private.mrs"}
   proxylite: { <<: *class, url: "https://raw.githubusercontent.com/qichiyuhub/rule/refs/heads/main/proxy.list"}
   ai: {  <<: *domain, url: "https://raw.githubusercontent.com/JohnsonRan/CRules/mihomo/resources/rules/ai.mrs" }
@@ -144,7 +144,7 @@ rule-providers:
   #microsoft_domain: { <<: *domain, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/microsoft.mrs"}
   #apple_domain: { <<: *domain, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/apple.mrs"}
   #speedtest_domain: { <<: *domain, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/ookla-speedtest.mrs"}
-  tiktok_domain: { <<: *domain, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/tiktok.mrs"}
+  tiktok_domain: { <<: *domain, url: "https://cdn.gh-proxy.org/https://github.com/DustinWin/ruleset_geodata/releases/download/mihomo-ruleset/tiktok.mrs"}
   geolocation-!cn: { <<: *domain, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/geolocation-!cn.mrs"}
   cn_domain: { <<: *domain, url: "https://cdn.gh-proxy.org/https://raw.githubusercontent.com/echs-top/proxy/main/rules/mrs/cn_domain.mrs"}
   
@@ -154,6 +154,7 @@ rule-providers:
   telegram_ip: { <<: *ip, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geoip/telegram.mrs"}
   #netflix_ip: { <<: *ip, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geoip/netflix.mrs"}
   #apple_ip: {<<: *ip, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo-lite/geoip/apple.mrs"}
+
 
 
 
