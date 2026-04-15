@@ -327,16 +327,6 @@ proxy-groups:
     <<: *group_common_auto
     filter: '(?=.*(港|🇭🇰|HK|[Hh]ong\s*[Kk]ong))'
 
-  - name: '日本'
-    <<: *group_common_select
-    include-all: true
-    proxies: ['日本-自动选择']
-    filter: '(?=.*(日本|🇯🇵|JP|[Jj]apan))'
-    icon: 'https://fastly.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Japan.png'
-  - name: '日本-自动选择'
-    <<: *group_common_auto
-    filter: '(?=.*(日本|🇯🇵|JP|[Jj]apan))'
-
   - name: '新加坡'
     <<: *group_common_select
     include-all: true
@@ -346,6 +336,16 @@ proxy-groups:
   - name: '新加坡-自动选择'
     <<: *group_common_auto
     filter: '(?=.*(新加坡|狮城|🇸🇬|SG|[Ss]ingapore))'
+
+  - name: '日本'
+    <<: *group_common_select
+    include-all: true
+    proxies: ['日本-自动选择']
+    filter: '(?=.*(日本|🇯🇵|JP|[Jj]apan))'
+    icon: 'https://fastly.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Japan.png'
+  - name: '日本-自动选择'
+    <<: *group_common_auto
+    filter: '(?=.*(日本|🇯🇵|JP|[Jj]apan))'
 
   - name: '美国'
     <<: *group_common_select
