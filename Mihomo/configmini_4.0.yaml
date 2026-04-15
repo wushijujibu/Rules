@@ -124,6 +124,10 @@ rule_providers_common:
     &rp_classical { type: http, interval: 86400, behavior: classical }
 
 rule-providers:
+  embylist_domain:
+    <<: *rp_domain
+    format: text
+    url: 'https://raw.githubusercontent.com/wushijujibu/Rules/refs/heads/main/emby_loon.list'
   adblockmihomolite:
     <<: *rp_domain
     format: mrs
