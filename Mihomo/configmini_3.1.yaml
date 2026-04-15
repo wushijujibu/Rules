@@ -1,30 +1,28 @@
 # DNS模块
 dns:
   enable: true
-  listen: 0.0.0.0:1053
   ipv6: true
-  respect-rules: false
+  cache-algorithm: arc
+  listen: "[::]:1053"
   enhanced-mode: fake-ip
-  fake-ip-range: 28.0.0.1/8
-  fake-ip-filter-mode: blacklist
+  fake-ip-range: 198.18.0.1/16
   fake-ip-filter:
-    - "*"
-    - "+.lan"
-    - "+.local"
-    - "rule-set:private_domain,cn_domain"
-    - "+.msftconnecttest.com"
-    - "+.msftncsi.com"
-    - "time.*.com"
     - "+.market.xiaomi.com"
+    - "lancache.steamcontent.com"
   default-nameserver:
-    - 223.5.5.5
+    - https://223.6.6.6/dns-query
   proxy-server-nameserver:
-    - 119.29.29.29
-    - system
+    - https://doh.pub/dns-query
   nameserver:
-    # - 223.5.5.5
-    # - 119.29.29.29
-    - system
+    #- https://dns.alidns.com/dns-query
+    - https://pz.fyi/dns-query
+  nameserver-policy:
+    "rule-set:private_domain,cn_domain": [system]
+    "rule-set:gfw": ["https://dns.google/dns-query#代理"]
+  direct-nameserver:
+    - 223.5.5.5
+    - 119.29.29.29
+  direct-nameserver-follow-policy: true
 
 # 节点信息
 +proxies:
@@ -94,6 +92,7 @@ rules:
   - RULE-SET,youtube_domain,YouTube
   - RULE-SET,google_domain,Google
   - RULE-SET,google_ip,Google,no-resolve
+  - RULE-SET,gfw,默认代理
   
   - DOMAIN-SUFFIX,skk.moe,DIRECT
   - DOMAIN-SUFFIX,challenges.cloudflare.com,DIRECT
@@ -145,6 +144,7 @@ rule-providers:
   #apple_domain: { <<: *domain, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/apple.mrs"}
   #speedtest_domain: { <<: *domain, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/ookla-speedtest.mrs"}
   tiktok_domain: { <<: *domain, url: "https://cdn.gh-proxy.org/https://github.com/DustinWin/ruleset_geodata/releases/download/mihomo-ruleset/tiktok.mrs"}
+  gfw: { <<: *domain, url: "https://github.com/DustinWin/ruleset_geodata/releases/download/mihomo-ruleset/gfw.mrs"}  
   geolocation-!cn: { <<: *domain, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/geolocation-!cn.mrs"}
   cn_domain: { <<: *domain, url: "https://cdn.gh-proxy.org/https://raw.githubusercontent.com/echs-top/proxy/main/rules/mrs/cn_domain.mrs"}
   
