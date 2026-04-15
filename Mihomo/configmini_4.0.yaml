@@ -19,17 +19,6 @@ exclude:
     exclude-filter: '群|返利|循环|官网|客服|网站|网址|获取|订阅|流量|到期|机场|下次|版本|官址|备用|过期|已用|联系|邮箱|工单|贩卖|通知|倒卖|防止|国内|地址|频道|无法|说明|使用|提示|特别|访问|支持|教程|关注|更新|作者|加入|超时|收藏|福利|邀请|好友|失联|选择|剩余|公益|发布|DIZTNA|通路|登录|禁止|定时|渠道|牢记|永久|余额|阁下|本站|刷新|导航|⚠️|@|Expire|http|com',
   }
 
-# 订阅提供者，如果你想要添加多个订阅提供者，可以复制 provider1 的配置块，并修改 url 和 path 字段。
-proxy-providers:
-  provider1:
-    <<: [*p, *exclude]
-    url: '此处填入机场订阅链接'
-    path: ./proxy_providers/provider1.txt
-#  provider2:
-#   <<: [*p, *exclude]
-#   url: '此处填入机场订阅链接'
-#   path: ./proxy_providers/provider2.txt
-
 # --- 基础全局配置 ---
 
 allow-lan: true
@@ -49,7 +38,7 @@ profile:
   store-fake-ip: true
 
 # --- 代理节点 ---
-proxies:
++proxies:
   - { name: '🇨🇳 直连（IPv4优先）', type: direct, ip-version: ipv4-prefer }
   - { name: '🇨🇳 直连（IPv6优先）', type: direct, ip-version: ipv6-prefer }
   - { name: '🇨🇳 直连（双栈）', type: direct }
@@ -320,26 +309,76 @@ prox_common:
 proxy-groups:
   - name: '默认节点'
     <<: *group_common_select
-    proxies: ['香港', '日本', '美国', '新加坡', '其他节点']
+    proxies: ['香港', '新加坡', '日本', '美国', '其他节点']
     icon: 'https://fastly.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Proxy.png'
+
+  # 地区分组
+  - name: '香港'
+    <<: *group_common_select
+    include-all: true
+    proxies: ['香港-自动选择']
+    filter: '(?=.*(港|🇭🇰|HK|[Hh]ong\s*[Kk]ong))'
+    icon: 'https://fastly.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Hong_Kong.png'
+  - name: '香港-自动选择'
+    <<: *group_common_auto
+    filter: '(?=.*(港|🇭🇰|HK|[Hh]ong\s*[Kk]ong))'
+
+  - name: '日本'
+    <<: *group_common_select
+    include-all: true
+    proxies: ['日本-自动选择']
+    filter: '(?=.*(日本|🇯🇵|JP|[Jj]apan))'
+    icon: 'https://fastly.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Japan.png'
+  - name: '日本-自动选择'
+    <<: *group_common_auto
+    filter: '(?=.*(日本|🇯🇵|JP|[Jj]apan))'
+
+  - name: '新加坡'
+    <<: *group_common_select
+    include-all: true
+    proxies: ['新加坡-自动选择']
+    filter: '(?=.*(新加坡|狮城|🇸🇬|SG|[Ss]ingapore))'
+    icon: 'https://fastly.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Singapore.png'
+  - name: '新加坡-自动选择'
+    <<: *group_common_auto
+    filter: '(?=.*(新加坡|狮城|🇸🇬|SG|[Ss]ingapore))'
+
+  - name: '美国'
+    <<: *group_common_select
+    include-all: true
+    proxies: ['美国-自动选择']
+    filter: '(?=.*(美|🇺🇸|US|[Aa]merica|[Uu]nited\s*[Ss]tates))'
+    icon: 'https://fastly.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/United_States.png'
+  - name: '美国-自动选择'
+    <<: *group_common_auto
+    filter: '(?=.*(美|🇺🇸|US|[Aa]merica|[Uu]nited\s*[Ss]tates))'
+
+  - name: '其他节点'
+    <<: *group_common_select
+    include-all: true
+    exclude-filter: '(?i)港|HK|🇭🇰|日本|JP|🇯🇵|美|US|🇺🇸|新加坡|SG|🇸🇬|直连'
+    icon: 'https://fastly.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/World_Map.png'
 
   # 分流策略组
   - name: '国外AI'
     <<: [*group_common_select, *proxies]
     icon: 'https://fastly.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/ChatGPT.png'
 
+  - name: 'TikTok'
+    <<: [*group_common_select, *proxies]
+    icon: 'https://fastly.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/TikTok.png'
+
   - name: 'YouTube'
     <<: [*group_common_select, *proxies]
     icon: 'https://fastly.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/YouTube.png'
 
-  - name: 'FCM'
-    <<: *group_common_select
-    proxies: ['直连', '默认节点', '香港', '日本', '美国', '新加坡', '其他节点']
-    icon: 'https://fastly.jsdelivr.net/gh/MiToverG422/Qure@master/IconSet/Color/fcm.png'
-
   - name: 'Google'
     <<: [*group_common_select, *proxies]
     icon: 'https://fastly.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Google_Search.png'
+
+  - name: 'Telegram'
+    <<: [*group_common_select, *proxies]
+    icon: 'https://fastly.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Telegram.png'
 
   - name: 'GitHub'
     <<: [*group_common_select, *proxies]
@@ -354,11 +393,7 @@ proxy-groups:
     <<: *group_common_select
     proxies: ['默认节点', '直连', '香港', '日本', '美国', '新加坡', '其他节点']
     icon: 'https://fastly.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Apple.png'
-
-  - name: 'Telegram'
-    <<: [*group_common_select, *proxies]
-    icon: 'https://fastly.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Telegram.png'
-
+    
   - name: 'Cloudflare'
     <<: [*group_common_select, *proxies]
     icon: 'https://fastly.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Cloudflare.png'
@@ -384,13 +419,14 @@ proxy-groups:
     proxies: ['默认节点', '直连', '香港', '日本', '美国', '新加坡', '其他节点']
     icon: 'https://fastly.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Spotify.png'
 
-  - name: 'TikTok'
-    <<: [*group_common_select, *proxies]
-    icon: 'https://fastly.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/TikTok.png'
-
   - name: 'Netflix'
     <<: [*group_common_select, *proxies]
     icon: 'https://fastly.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Netflix.png'
+
+  - name: 'FCM'
+    <<: *group_common_select
+    proxies: ['直连', '默认节点', '香港', '日本', '美国', '新加坡', '其他节点']
+    icon: 'https://fastly.jsdelivr.net/gh/MiToverG422/Qure@master/IconSet/Color/fcm.png'
 
   - name: '广告拦截'
     <<: *group_common_select
@@ -408,58 +444,12 @@ proxy-groups:
     url: 'https://connectivitycheck.platform.hicloud.com/generate_204'
     icon: 'https://fastly.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/China_Map.png'
 
-  # 地区分组
-  - name: '香港'
-    <<: *group_common_select
-    include-all: true
-    proxies: ['香港-自动选择']
-    filter: '(?=.*(港|🇭🇰|HK|[Hh]ong\s*[Kk]ong))'
-    icon: 'https://fastly.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Hong_Kong.png'
-  - name: '香港-自动选择'
-    <<: *group_common_auto
-    filter: '(?=.*(港|🇭🇰|HK|[Hh]ong\s*[Kk]ong))'
-
-  - name: '日本'
-    <<: *group_common_select
-    include-all: true
-    proxies: ['日本-自动选择']
-    filter: '(?=.*(日本|🇯🇵|JP|[Jj]apan))'
-    icon: 'https://fastly.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Japan.png'
-  - name: '日本-自动选择'
-    <<: *group_common_auto
-    filter: '(?=.*(日本|🇯🇵|JP|[Jj]apan))'
-
-  - name: '美国'
-    <<: *group_common_select
-    include-all: true
-    proxies: ['美国-自动选择']
-    filter: '(?=.*(美|🇺🇸|US|[Aa]merica|[Uu]nited\s*[Ss]tates))'
-    icon: 'https://fastly.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/United_States.png'
-  - name: '美国-自动选择'
-    <<: *group_common_auto
-    filter: '(?=.*(美|🇺🇸|US|[Aa]merica|[Uu]nited\s*[Ss]tates))'
-
-  - name: '新加坡'
-    <<: *group_common_select
-    include-all: true
-    proxies: ['新加坡-自动选择']
-    filter: '(?=.*(新加坡|狮城|🇸🇬|SG|[Ss]ingapore))'
-    icon: 'https://fastly.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Singapore.png'
-  - name: '新加坡-自动选择'
-    <<: *group_common_auto
-    filter: '(?=.*(新加坡|狮城|🇸🇬|SG|[Ss]ingapore))'
-
-  - name: '其他节点'
-    <<: *group_common_select
-    include-all: true
-    exclude-filter: '(?i)港|HK|🇭🇰|日本|JP|🇯🇵|美|US|🇺🇸|新加坡|SG|🇸🇬|直连'
-    icon: 'https://fastly.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/World_Map.png'
-
 # --- 路由规则 (Rules) ---
 rules:
   # 私有网络直连
   - RULE-SET,private,直连
   - RULE-SET,private_ip,直连,no-resolve
+  - RULE-SET,embylist_domain,直连
 
   # 国内直连
   - RULE-SET,steam_cn,直连
