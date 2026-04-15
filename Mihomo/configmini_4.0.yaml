@@ -228,14 +228,6 @@ rule-providers:
     <<: *rp_ip
     format: mrs
     url: 'https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geoip/cn.mrs'
-  emby:
-    <<: *rp_domain
-    format: mrs
-    url: 'https://fastly.jsdelivr.net/gh/666OS/rules@release/mihomo/domain/Emby.mrs'
-  emby_ip:
-    <<: *rp_ip
-    format: mrs
-    url: 'https://fastly.jsdelivr.net/gh/666OS/rules@release/mihomo/ip/Emby.mrs'
   spotify:
     <<: *rp_domain
     format: mrs
@@ -414,10 +406,6 @@ proxy-groups:
     <<: [*group_common_select, *proxies]
     icon: 'https://fastly.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Twitter.png'
 
-  - name: 'Emby'
-    <<: [*group_common_select, *proxies]
-    icon: 'https://fastly.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Emby.png'
-
   - name: 'Spotify'
     <<: *group_common_select
     proxies: ['默认节点', '直连', '香港', '日本', '美国', '新加坡', '其他']
@@ -486,8 +474,6 @@ rules:
   - RULE-SET,pixiv,Pixiv
   - RULE-SET,steam,Steam
   - RULE-SET,twitter,Twitter
-  - RULE-SET,emby,Emby
-  - DOMAIN-KEYWORD,emby,Emby
   - RULE-SET,spotify,Spotify
   - RULE-SET,tiktok,TikTok
   - RULE-SET,netflix,Netflix
@@ -497,7 +483,6 @@ rules:
   - RULE-SET,telegram_ip,Telegram,no-resolve
   - RULE-SET,twitter_ip,Twitter,no-resolve
   - RULE-SET,cloudflare_ip,Cloudflare,no-resolve
-  - RULE-SET,emby_ip,Emby,no-resolve
   - RULE-SET,netflix_ip,Netflix,no-resolve
 
   # 兜底规则
