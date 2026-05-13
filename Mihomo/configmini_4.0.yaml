@@ -394,75 +394,6 @@ proxy-groups:
       ]
     icon: 'https://raw.githubusercontent.com/fmz200/wool_scripts/main/icons/apps/Macat.png'
 
-  # 定义地区策略组
-  - name: '香港'
-    <<: *group_common_select
-    include-all: true
-    proxies: ['香港-自动选择']
-    filter: '(?=.*(港|🇭🇰|HK|[Hh]ong\s*[Kk]ong))'
-    icon: 'https://fastly.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Hong_Kong.png'
-  - name: '香港-自动选择'
-    <<: *group_common_auto
-    filter: '(?=.*(港|🇭🇰|HK|[Hh]ong\s*[Kk]ong))'
-
-  - name: '台湾省'
-    <<: *group_common_select
-    include-all: true
-    proxies: ['台湾省-自动选择']
-    filter: '(?=.*(台湾|🇹🇼|TW|[Tt]ai\s*[Ww]an))'
-    icon: 'https://fastly.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Taiwan.png'
-  - name: '台湾省-自动选择'
-    <<: *group_common_auto
-    filter: '(?=.*(台湾|🇹🇼|TW|[Tt]ai\s*[Ww]an))'
-
-  - name: '新加坡'
-    <<: *group_common_select
-    include-all: true
-    proxies: ['新加坡-自动选择']
-    filter: '(?=.*(新加坡|狮城|🇸🇬|SG|[Ss]ingapore))'
-    icon: 'https://fastly.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Singapore.png'
-  - name: '新加坡-自动选择'
-    <<: *group_common_auto
-    filter: '(?=.*(新加坡|狮城|🇸🇬|SG|[Ss]ingapore))'
-
-  - name: '日本'
-    <<: *group_common_select
-    include-all: true
-    proxies: ['日本-自动选择']
-    filter: '(?=.*(日本|🇯🇵|JP|[Jj]apan))'
-    icon: 'https://fastly.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Japan.png'
-  - name: '日本-自动选择'
-    <<: *group_common_auto
-    filter: '(?=.*(日本|🇯🇵|JP|[Jj]apan))'
-
-  - name: '美国'
-    <<: *group_common_select
-    include-all: true
-    proxies: ['美国-自动选择']
-    filter: '(?=.*(美|🇺🇸|US|[Aa]merica|[Uu]nited\s*[Ss]tates))'
-    icon: 'https://fastly.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/United_States.png'
-  - name: '美国-自动选择'
-    <<: *group_common_auto
-    filter: '(?=.*(美|🇺🇸|US|[Aa]merica|[Uu]nited\s*[Ss]tates))'
-
-  - name: '低倍率节点'
-    <<: *group_common_select
-    include-all: true
-    filter: '^(?!.*(?:剩|期|客户端|软件)).*(?:(?<!\d)0\.[0-5]|下载|低倍)'
-    icon: 'https://fastly.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Available_1.png'
-
-  - name: '高倍率节点'
-    <<: *group_common_select
-    include-all: true
-    filter: '(?:[*×xX✕✖⨉]\s*(?:[2-9]\d*|[1-9]\d+)(?:\.\d+)?)|(?:(?<![\d.])(?:[2-9]\d*|[1-9]\d+)(?:\.\d+)?\s*(?:倍|[*×xX✕✖⨉]))'
-    icon: 'https://fastly.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Airport.png'
-
-  - name: '其他节点'
-    <<: *group_common_select
-    include-all: true
-    exclude-filter: '(?i)港|HK|🇭🇰|日本|JP|🇯🇵|美|US|🇺🇸|新加坡|SG|🇸🇬|台湾|TW|🇹🇼|直连'
-    icon: 'https://fastly.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/World_Map.png'
-
   - name: 'AI'
     <<: [*group_common_select, *proxies]
     icon: 'https://fastly.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/ChatGPT.png'
@@ -479,7 +410,6 @@ proxy-groups:
     <<: [*group_common_select, *proxies]
     icon: 'https://fastly.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Google_Search.png'
 
-  # 分流策略组
   - name: '人机验证'
     <<: *group_common_select
     proxies:
@@ -602,16 +532,81 @@ proxy-groups:
     proxies: ['REJECT', 'REJECT-DROP', 'PASS']
     icon: 'https://fastly.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Advertising.png'
 
-  - name: '下载专用'
-    <<: *group_common_select
-    proxies: ['直连', '默认代理']
-    icon: 'https://fastly.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Download.png'
-
   - name: '直连'
     <<: *group_common_select
     proxies: ['🇨🇳 直连 | IPv4优先', '🇨🇳 直连 | IPv6优先', '🇨🇳 直连 | 双栈']
     url: 'https://connectivitycheck.platform.hicloud.com/generate_204'
     icon: 'https://fastly.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/China_Map.png'
+
+
+  # 定义地区策略组
+  - name: '香港'
+    <<: *group_common_select
+    include-all: true
+    proxies: ['香港-自动选择']
+    filter: '(?=.*(港|🇭🇰|HK|[Hh]ong\s*[Kk]ong))'
+    icon: 'https://fastly.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Hong_Kong.png'
+  - name: '香港-自动选择'
+    <<: *group_common_auto
+    filter: '(?=.*(港|🇭🇰|HK|[Hh]ong\s*[Kk]ong))'
+
+  - name: '台湾省'
+    <<: *group_common_select
+    include-all: true
+    proxies: ['台湾省-自动选择']
+    filter: '(?=.*(台湾|🇹🇼|TW|[Tt]ai\s*[Ww]an))'
+    icon: 'https://fastly.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Taiwan.png'
+  - name: '台湾省-自动选择'
+    <<: *group_common_auto
+    filter: '(?=.*(台湾|🇹🇼|TW|[Tt]ai\s*[Ww]an))'
+
+  - name: '新加坡'
+    <<: *group_common_select
+    include-all: true
+    proxies: ['新加坡-自动选择']
+    filter: '(?=.*(新加坡|狮城|🇸🇬|SG|[Ss]ingapore))'
+    icon: 'https://fastly.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Singapore.png'
+  - name: '新加坡-自动选择'
+    <<: *group_common_auto
+    filter: '(?=.*(新加坡|狮城|🇸🇬|SG|[Ss]ingapore))'
+
+  - name: '日本'
+    <<: *group_common_select
+    include-all: true
+    proxies: ['日本-自动选择']
+    filter: '(?=.*(日本|🇯🇵|JP|[Jj]apan))'
+    icon: 'https://fastly.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Japan.png'
+  - name: '日本-自动选择'
+    <<: *group_common_auto
+    filter: '(?=.*(日本|🇯🇵|JP|[Jj]apan))'
+
+  - name: '美国'
+    <<: *group_common_select
+    include-all: true
+    proxies: ['美国-自动选择']
+    filter: '(?=.*(美|🇺🇸|US|[Aa]merica|[Uu]nited\s*[Ss]tates))'
+    icon: 'https://fastly.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/United_States.png'
+  - name: '美国-自动选择'
+    <<: *group_common_auto
+    filter: '(?=.*(美|🇺🇸|US|[Aa]merica|[Uu]nited\s*[Ss]tates))'
+
+  - name: '低倍率节点'
+    <<: *group_common_select
+    include-all: true
+    filter: '^(?!.*(?:剩|期|客户端|软件)).*(?:(?<!\d)0\.[0-5]|下载|低倍)'
+    icon: 'https://fastly.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Available_1.png'
+
+  - name: '高倍率节点'
+    <<: *group_common_select
+    include-all: true
+    filter: '(?:[*×xX✕✖⨉]\s*(?:[2-9]\d*|[1-9]\d+)(?:\.\d+)?)|(?:(?<![\d.])(?:[2-9]\d*|[1-9]\d+)(?:\.\d+)?\s*(?:倍|[*×xX✕✖⨉]))'
+    icon: 'https://fastly.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Airport.png'
+
+  - name: '其他节点'
+    <<: *group_common_select
+    include-all: true
+    exclude-filter: '(?i)港|HK|🇭🇰|日本|JP|🇯🇵|美|US|🇺🇸|新加坡|SG|🇸🇬|台湾|TW|🇹🇼|直连'
+    icon: 'https://fastly.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/World_Map.png'
 
 # --- 路由规则 (Rules) ---
 rules:
@@ -627,7 +622,6 @@ rules:
   - RULE-SET,cloudflare_cn,直连
 
   # 进程规则
-  - RULE-SET,DownloadApps,下载专用 # 常见磁力下载软件
   - PROCESS-NAME,com.perol.pixez,Pixiv
   - PROCESS-NAME,com.perol.play.pixez,Pixiv
 
