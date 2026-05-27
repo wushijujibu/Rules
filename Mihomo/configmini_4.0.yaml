@@ -46,14 +46,13 @@ profile:
 # 国内外 DNS 定义
 chinaDNS:
   &chinaDNS [
-    'system',
-    'https://dns.alidns.com/dns-query',
-    'https://doh.pub/dns-query',
+    'https://dns.alidns.com/dns-query#DIRECT',
+    'https://doh.pub/dns-query#DIRECT',
   ]
 foreignDNS:
   &foreignDNS [
-    'https://1.1.1.1/dns-query#默认代理',
-    'https://8.8.8.8/dns-query#默认代理',
+    'https://dns.cloudflare.com/dns-query#默认代理',
+    'https://dns.google/dns-query#默认代理',
   ]
 
 dns:
@@ -67,36 +66,26 @@ dns:
   fake-ip-range: 198.18.0.1/16
   fake-ip-range-v6: 'fc00::/18'
   fake-ip-filter:
-    - '+.cn'
     - 'rule-set:private'
-    - 'rule-set:category_ntp'
     - 'rule-set:fakeip_filter'
-    - 'rule-set:connectivity_check'
-    - 'rule-set:cn'
-    - 'rule-set:googlefcm'
-    - 'rule-set:steam_cn'
-    - 'rule-set:epicgames'
-    - 'rule-set:nvidia_cn'
-    - 'rule-set:microsoft_cn'
-    - 'rule-set:cloudflare_cn'
-  proxy-server-nameserver:
-    - 'https://doh.pub/dns-query#DIRECT'
-    - 'https://dns.alidns.com/dns-query#DIRECT'
+  proxy-server-nameserver: *chinaDNS
   default-nameserver:
     - '223.5.5.5'
     - '119.29.29.29'
   nameserver: *foreignDNS
   nameserver-policy:
     '*': 'system'
-    '+.arpa': 'system'
-    '+.cn': *chinaDNS
-    'rule-set:private,cn,steam_cn,epicgames,nvidia_cn,cloudflare_cn,microsoft_cn,microsoft,googlefcm,apple,spotify,captcha': *chinaDNS
-  direct-nameserver: ['system', '223.5.5.5', '119.29.29.29']
-  direct-nameserver-follow-policy: true
+    'rule-set:cn': *chinaDNS
+  direct-nameserver:
+    - 'system'
+    - '223.5.5.5'
+    - '119.29.29.29'
 
 hosts:
   'dns.alidns.com': ['223.5.5.5', '223.6.6.6']
   'doh.pub': ['1.12.12.12', '120.53.53.53']
+  'dns.cloudflare.com': ['1.1.1.1', '1.0.0.1']
+  'dns.google': ['8.8.8.8', '8.8.4.4']
 
   # 解决谷歌商店无法下载的问题
   'services.googleapis.cn': ['services.googleapis.com']
@@ -105,23 +94,12 @@ hosts:
   '+.mcdn.bilivideo.com': ['0.0.0.0']
   '+.mcdn.bilivideo.cn': ['0.0.0.0']
 
-sniffer:
-  enable: false
-  force-dns-mapping: true
-  parse-pure-ip: true
-  override-destination: false
-  sniff:
-    HTTP: { ports: [80, 8080-8880], override-destination: true }
-    TLS: { ports: [443, 8443] }
-    QUIC: { ports: [443, 8443] }
-  skip-domain:
-    ['Mijia Cloud', '+.oray.com', '+.push.apple.com', 'cloudflare-ech.com']
-  skip-dst-address: ['rule-set:telegram_ip']
-
 ntp:
   enable: true
   write-to-system: false
-  server: cn.ntp.org.cn
+  server: 'ntp.aliyun.com'
+  port: 123
+  interval: 60
 
 tun:
   enable: true
@@ -480,23 +458,6 @@ proxy-groups:
     <<: [*group_common_select, *proxies]
     icon: 'https://fastly.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Google_Search.png'
 
-  - name: '人机验证'
-    <<: *group_common_select
-    proxies:
-      [
-        '默认代理',
-        '直连',
-        '香港',
-        '日本',
-        '美国',
-        '新加坡',
-        '台湾省',
-        '低倍率节点',
-        '高倍率节点',
-        '其他节点',
-      ]
-    icon: 'https://fastly.jsdelivr.net/gh/MiToverG422/Qure@master/IconSet/Color/Bot.png'
-
   - name: 'FCM'
     <<: *group_common_select
     proxies:
@@ -633,7 +594,6 @@ rules:
   - AND,((NETWORK,UDP),(DST-PORT,443),(RULE-SET,youtube)),REJECT
 
   # 代理规则（域名）
-  - RULE-SET,captcha,人机验证
   - RULE-SET,ai,AI
   - RULE-SET,youtube,YouTube
   - RULE-SET,googlefcm,FCM
@@ -660,7 +620,6 @@ rules:
 
   # 兜底规则
   - RULE-SET,gfw,默认代理
-  - RULE-SET,cn,直连
-  - DOMAIN-WILDCARD,*.cn,直连
+  - RULE-SET,cn_additional,直连
   - RULE-SET,cn_ip,直连
   - MATCH,默认代理
