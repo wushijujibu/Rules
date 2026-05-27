@@ -240,6 +240,11 @@ rule-providers:
     format: mrs
     url: 'https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/gfw.mrs'
     path: './ruleset/gfw.mrs'
+  cn_additional:
+    <<: *rp_domain
+    format: mrs
+    url: 'https://static-file-global.353355.xyz/rules/cn-additional-list.mrs'
+    path: './ruleset/cn-additional-list.mrs'
   cn:
     <<: *rp_domain
     format: mrs
