@@ -220,7 +220,7 @@ rule-providers:
   telegram_ip:
     <<: *rp_ip
     format: mrs
-    url: 'https://fastly.jsdelivr.net/gh/echs-top/proxy@main/rules/mrs/telegram_ip.mrs'
+    url: 'https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geoip/telegram.mrs'
     path: './ruleset/telegram_ip.mrs'
   pixiv:
     <<: *rp_domain
