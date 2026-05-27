@@ -295,21 +295,6 @@ rule-providers:
     format: mrs
     url: 'https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/apple.mrs'
     path: './ruleset/apple.mrs'
-  connectivity_check:
-    <<: *rp_domain
-    format: mrs
-    url: 'https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/connectivity-check.mrs'
-    path: './ruleset/connectivity-check.mrs'
-  category_ntp:
-    <<: *rp_domain
-    format: mrs
-    url: 'https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/category-ntp.mrs'
-    path: './ruleset/category-ntp.mrs'
-  captcha:
-    <<: *rp_domain
-    format: mrs
-    url: 'https://fastly.jsdelivr.net/gh/echs-top/proxy@main/rules/mrs/captcha_domain.mrs'
-    path: './ruleset/captcha_domain.mrs'
   instagram:
     <<: *rp_domain
     format: mrs
