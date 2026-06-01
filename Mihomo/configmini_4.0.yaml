@@ -563,7 +563,7 @@ proxy-groups:
 # --- 路由规则 (Rules) ---
 rules:
   # emby特定 
-  - RULE-SET,emby.wtf,新加坡
+  - DOMAIN-SUFFIX,emby.wtf,新加坡
 
   # 私有网络直连
   - RULE-SET,private,直连
