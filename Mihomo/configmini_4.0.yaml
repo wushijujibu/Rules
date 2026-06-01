@@ -562,8 +562,6 @@ proxy-groups:
 
 # --- 路由规则 (Rules) ---
 rules:
-  # emby特定 
-  - DOMAIN-SUFFIX,emby.wtf,新加坡
   
   # 私有网络直连
   - RULE-SET,private,直连
@@ -575,6 +573,9 @@ rules:
   - RULE-SET,nvidia_cn,直连
   - RULE-SET,microsoft_cn,直连
   - RULE-SET,cloudflare_cn,直连
+
+  # emby特定 
+  - DOMAIN-SUFFIX,emby.wtf,新加坡
 
   # 进程规则
   - PROCESS-NAME,com.perol.pixez,Pixiv
