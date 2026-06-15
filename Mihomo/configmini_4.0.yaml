@@ -74,7 +74,6 @@ dns:
     - '119.29.29.29'
   nameserver: *foreignDNS
   nameserver-policy:
-    '*': 'system'
     'rule-set:cn': *chinaDNS
   direct-nameserver:
     - 'system'
@@ -235,11 +234,11 @@ rule-providers:
     format: mrs
     url: 'https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geoip/private.mrs'
     path: './ruleset/private_ip.mrs'
-  gfw:
+  geolocation-!cn:
     <<: *rp_domain
     format: mrs
-    url: 'https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/gfw.mrs'
-    path: './ruleset/gfw.mrs'
+    url: 'https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/geolocation-!cn.mrs'
+    path: './ruleset/geolocation-!cn.mrs'
   cn_additional:
     <<: *rp_domain
     format: mrs
@@ -309,21 +308,24 @@ group_common_select:
     type: select,
     interval: 600,
     timeout: 3000,
+    max-failed-times: 3,
+    empty-fallback: REJECT,
     url: 'https://g.cn/generate_204',
     lazy: true,
-    max-failed-times: 3,
   }
 
 group_common_auto:
   &group_common_auto {
+    type: url-test,
     interval: 600,
     timeout: 3000,
-    type: url-test,
-    tolerance: 100,
-    include-all: true,
+    max-failed-times: 3,
+    empty-fallback: REJECT,
     url: 'https://g.cn/generate_204',
     lazy: true,
-    max-failed-times: 3,
+    tolerance: 100,
+    include-all: true,
+    exclude-type: 'DIRECT',
     icon: 'https://fastly.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Auto.png',
     hidden: true,
   }
@@ -612,7 +614,7 @@ rules:
   - RULE-SET,netflix_ip,Netflix,no-resolve
 
   # 兜底规则
-  - RULE-SET,gfw,默认代理
+  - RULE-SET,geolocation-!cn,默认代理
   - RULE-SET,cn_additional,直连
   - RULE-SET,cn_ip,直连
   - MATCH,默认代理
