@@ -16,7 +16,7 @@ proxy_providers_common:
 # 全局过滤节点
 exclude:
   &exclude {
-    exclude-filter: '群|返利|循环|官网|客服|网站|网址|获取|订阅|流量|到期|机场|下次|版本|官址|备用|过期|已用|联系|邮箱|工单|贩卖|通知|倒卖|防止|国内|地址|频道|无法|说明|使用|提示|特别|访问|支持|教程|关注|更新|作者|加入|超时|收藏|福利|邀请|好友|失联|选择|剩余|公益|发布|DIZTNA|通路|登录|禁止|定时|渠道|牢记|永久|余额|阁下|本站|刷新|导航|⚠️|@|Expire|http|com',
+    exclude-filter: '群|返利|循环|官网|客服|网站|网址|获取|订阅|流量|到期|机场|下次|版本|官址|备用|过期|已用|联系|邮箱|工单|贩卖|通知|倒卖|防止|国内|地址|频道|无法|说明|使用|提示|特别|访问|支持|教程|关注|更新|作者|加入|超时|收藏|福利|邀请|好友|失联|选择|剩余|公益|发布|DIZTNA|通路|登录|禁止|定时|渠道|牢记|永久|余额|阁下|本站|刷新|导航|建议|⚠️|@|Expire|http|com',
   }
 
 # --- 基础全局配置 ---
@@ -129,21 +129,11 @@ rule-providers:
     format: mrs
     url: 'https://fastly.jsdelivr.net/gh/217heidai/adblockfilters@main/rules/adblockmihomolite.mrs'
     path: './ruleset/adblockmihomolite.mrs'
-  DownloadApps:
-    <<: *rp_classical
-    format: text
-    url: 'https://fastly.jsdelivr.net/gh/AIsouler/MyClash@main/Rules/DownloadApps.txt'
-    path: './ruleset/DownloadApps.txt'
   fakeip_filter:
     <<: *rp_domain
     format: text
     url: 'https://fastly.jsdelivr.net/gh/juewuy/ShellCrash@dev/public/fake_ip_filter.list'
     path: './ruleset/fakeip_filter.list'
-  epicgames:
-    <<: *rp_domain
-    format: mrs
-    url: 'https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/epicgames.mrs'
-    path: './ruleset/epicgames.mrs'
   nvidia_cn:
     <<: *rp_domain
     format: mrs
@@ -174,21 +164,6 @@ rule-providers:
     format: mrs
     url: 'https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geoip/google.mrs'
     path: './ruleset/google_ip.mrs'
-  github:
-    <<: *rp_domain
-    format: mrs
-    url: 'https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/github.mrs'
-    path: './ruleset/github.mrs'
-  microsoft:
-    <<: *rp_domain
-    format: mrs
-    url: 'https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/microsoft.mrs'
-    path: './ruleset/microsoft.mrs'
-  microsoft_cn:
-    <<: *rp_domain
-    format: mrs
-    url: 'https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/microsoft@cn.mrs'
-    path: './ruleset/microsoft@cn.mrs'
   telegram:
     <<: *rp_domain
     format: mrs
@@ -199,21 +174,6 @@ rule-providers:
     format: mrs
     url: 'https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geoip/telegram.mrs'
     path: './ruleset/telegram_ip.mrs'
-  pixiv:
-    <<: *rp_domain
-    format: mrs
-    url: 'https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/pixiv.mrs'
-    path: './ruleset/pixiv.mrs'
-  steam:
-    <<: *rp_domain
-    format: mrs
-    url: 'https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/steam.mrs'
-    path: './ruleset/steam.mrs'
-  steam_cn:
-    <<: *rp_domain
-    format: mrs
-    url: 'https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/steam@cn.mrs'
-    path: './ruleset/steam@cn.mrs'
   twitter:
     <<: *rp_domain
     format: mrs
@@ -254,46 +214,11 @@ rule-providers:
     format: mrs
     url: 'https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geoip/cn.mrs'
     path: './ruleset/cn_ip.mrs'
-  spotify:
-    <<: *rp_domain
-    format: mrs
-    url: 'https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/spotify.mrs'
-    path: './ruleset/spotify.mrs'
   tiktok:
     <<: *rp_domain
     format: mrs
     url: 'https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/tiktok.mrs'
     path: './ruleset/tiktok.mrs'
-  netflix:
-    <<: *rp_domain
-    format: mrs
-    url: 'https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/netflix.mrs'
-    path: './ruleset/netflix.mrs'
-  netflix_ip:
-    <<: *rp_ip
-    format: mrs
-    url: 'https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geoip/netflix.mrs'
-    path: './ruleset/netflix_ip.mrs'
-  cloudflare:
-    <<: *rp_domain
-    format: mrs
-    url: 'https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/cloudflare.mrs'
-    path: './ruleset/cloudflare.mrs'
-  cloudflare_cn:
-    <<: *rp_domain
-    format: mrs
-    url: 'https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/cloudflare@cn.mrs'
-    path: './ruleset/cloudflare@cn.mrs'
-  cloudflare_ip:
-    <<: *rp_ip
-    format: mrs
-    url: 'https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geoip/cloudflare.mrs'
-    path: './ruleset/cloudflare_ip.mrs'
-  apple:
-    <<: *rp_domain
-    format: mrs
-    url: 'https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/apple.mrs'
-    path: './ruleset/apple.mrs'
   instagram:
     <<: *rp_domain
     format: mrs
@@ -467,59 +392,9 @@ proxy-groups:
       ]
     icon: 'https://fastly.jsdelivr.net/gh/MiToverG422/Qure@master/IconSet/Color/fcm.png'
 
-  - name: 'GitHub'
-    <<: [*group_common_select, *proxies]
-    icon: 'https://fastly.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/GitHub.png'
-
-  - name: 'Microsoft'
-    <<: *group_common_select
-    proxies:
-      [
-        '默认代理',
-        '直连',
-        '香港',
-        '日本',
-        '美国',
-        '新加坡',
-        '台湾省',
-        '低倍率节点',
-        '高倍率节点',
-        '其他节点',
-      ]
-    icon: 'https://fastly.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Microsoft.png'
-
-  - name: 'Apple'
-    <<: *group_common_select
-    proxies:
-      [
-        '默认代理',
-        '直连',
-        '香港',
-        '日本',
-        '美国',
-        '新加坡',
-        '台湾省',
-        '低倍率节点',
-        '高倍率节点',
-        '其他节点',
-      ]
-    icon: 'https://fastly.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Apple.png'
-
   - name: 'Telegram'
     <<: [*group_common_select, *proxies]
     icon: 'https://fastly.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Telegram.png'
-
-  - name: 'Cloudflare'
-    <<: [*group_common_select, *proxies]
-    icon: 'https://fastly.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Cloudflare.png'
-
-  - name: 'Pixiv'
-    <<: [*group_common_select, *proxies]
-    icon: 'https://play-lh.googleusercontent.com/Ls9opXo6-wfEWmbBU8heJaFS8HwWydssWE1J3vexIGvkF-UJDqcW7ZMD8w6dQABfygONd4z3Yt4TfRDZAPYq=w480-h960-rw'
-
-  - name: 'Steam'
-    <<: [*group_common_select, *proxies]
-    icon: 'https://fastly.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Steam.png'
 
   - name: 'Twitter'
     <<: [*group_common_select, *proxies]
@@ -528,27 +403,6 @@ proxy-groups:
   - name: 'Instagram'
     <<: [*group_common_select, *proxies]
     icon: 'https://fastly.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Instagram.png'
-
-  - name: 'Spotify'
-    <<: *group_common_select
-    proxies:
-      [
-        '默认代理',
-        '直连',
-        '香港',
-        '日本',
-        '美国',
-        '新加坡',
-        '台湾省',
-        '低倍率节点',
-        '高倍率节点',
-        '其他节点',
-      ]
-    icon: 'https://fastly.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Spotify.png'
-
-  - name: 'Netflix'
-    <<: [*group_common_select, *proxies]
-    icon: 'https://fastly.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Netflix.png'
 
   - name: '广告拦截'
     <<: *group_common_select
@@ -569,18 +423,10 @@ rules:
   - RULE-SET,private_ip,直连,no-resolve
 
   # 国内直连
-  - RULE-SET,steam_cn,直连
-  - RULE-SET,epicgames,直连
   - RULE-SET,nvidia_cn,直连
-  - RULE-SET,microsoft_cn,直连
-  - RULE-SET,cloudflare_cn,直连
 
   # emby特定 
   - DOMAIN-SUFFIX,emby.wtf,新加坡
-
-  # 进程规则
-  - PROCESS-NAME,com.perol.pixez,Pixiv
-  - PROCESS-NAME,com.perol.play.pixez,Pixiv
 
   # 广告拦截
   - RULE-SET,adblockmihomolite,广告拦截
@@ -593,25 +439,15 @@ rules:
   - RULE-SET,youtube,YouTube
   - RULE-SET,googlefcm,FCM
   - RULE-SET,google,Google
-  - RULE-SET,github,GitHub
-  - RULE-SET,microsoft,Microsoft
-  - RULE-SET,apple,Apple
   - RULE-SET,telegram,Telegram
-  - RULE-SET,cloudflare,Cloudflare
-  - RULE-SET,pixiv,Pixiv
-  - RULE-SET,steam,Steam
   - RULE-SET,twitter,Twitter
   - RULE-SET,instagram,Instagram
-  - RULE-SET,spotify,Spotify
   - RULE-SET,tiktok,TikTok
-  - RULE-SET,netflix,Netflix
 
   # 代理规则（IP）
   - RULE-SET,google_ip,Google,no-resolve
   - RULE-SET,telegram_ip,Telegram,no-resolve
   - RULE-SET,twitter_ip,Twitter,no-resolve
-  - RULE-SET,cloudflare_ip,Cloudflare,no-resolve
-  - RULE-SET,netflix_ip,Netflix,no-resolve
 
   # 兜底规则
   - RULE-SET,geolocation-!cn,默认代理
