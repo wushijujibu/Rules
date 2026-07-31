@@ -123,7 +123,7 @@ rule-providers:
   embylist_domain:
     <<: *rp_domain
     format: text
-    url: 'https://raw.githubusercontent.com/wushijujibu/Rules/refs/heads/main/emby_loon.list'
+    url: 'https://github.com/wushijujibu/Rules/blob/main/emby.list'
   adblockmihomolite:
     <<: *rp_domain
     format: mrs
