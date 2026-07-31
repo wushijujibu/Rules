@@ -424,8 +424,9 @@ rules:
 
   # 国内直连
   - RULE-SET,nvidia_cn,直连
-
+  
   # emby特定 
+  - RULE-SET,embylist_domain,直连
   - DOMAIN-SUFFIX,emby.wtf,新加坡
 
   # 广告拦截
