@@ -66,7 +66,6 @@ dns:
   nameserver: *foreignDNS
   nameserver-policy:
     'rule-set:private': 'system'
-    'rule-set:douyin': ['180.184.1.1', '180.184.2.2']
     'rule-set:cn': *chinaDNS
   direct-nameserver: *chinaDNS
   direct-nameserver-follow-policy: true
@@ -211,11 +210,6 @@ rule-providers:
     format: mrs
     url: 'https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/instagram.mrs'
     path: './ruleset/instagram.mrs'
-  douyin:
-    <<: *rp_domain
-    url: 'https://fastly.jsdelivr.net/gh/appshubcc/bett-rules@meta/geo/geosite/douyin.mrs'
-    path: './ruleset/douyin.mrs'
-    path-in-bundle: 'geo/geosite/douyin.mrs'
     
 # --- 策略组 (Proxy Groups) ---
 
@@ -367,23 +361,6 @@ proxy-groups:
     <<: [*group_common_select, *proxies]
     icon: 'https://fastly.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Google_Search.png'
 
-  - name: 'FCM'
-    <<: *group_common_select
-    proxies:
-      [
-        '直连',
-        '默认代理',
-        '香港',
-        '日本',
-        '美国',
-        '新加坡',
-        '台湾省',
-        '低倍率节点',
-        '高倍率节点',
-        '其他节点',
-      ]
-    icon: 'https://fastly.jsdelivr.net/gh/MiToverG422/Qure@master/IconSet/Color/fcm.png'
-
   - name: 'Telegram'
     <<: [*group_common_select, *proxies]
     icon: 'https://fastly.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Telegram.png'
@@ -401,6 +378,11 @@ proxy-groups:
     proxies: ['REJECT', 'REJECT-DROP', 'PASS']
     icon: 'https://fastly.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Advertising.png'
 
+  - name: 'FCM'
+    <<: *group_common_select
+    proxies: ['直连']
+    icon: 'https://fastly.jsdelivr.net/gh/MiToverG422/Qure@master/IconSet/Color/fcm.png'
+    
   - name: '直连'
     <<: *group_common_select
     proxies: ['🇨🇳 直连 | IPv4优先', '🇨🇳 直连 | IPv6优先', '🇨🇳 直连 | 双栈']
@@ -412,7 +394,6 @@ proxy-groups:
 rules:  
   # 私有网络直连
   - RULE-SET,private,直连
-  - RULE-SET,private_ip,直连,no-resolve
 
   # 国内直连
   - RULE-SET,nvidia_cn,直连
@@ -424,10 +405,10 @@ rules:
   # 广告拦截
   - RULE-SET,adblockmihomolite,广告拦截
 
-  # 阻断 YouTube UDP 流量
-  - AND,((NETWORK,UDP),(DST-PORT,443),(RULE-SET,youtube)),REJECT
+  # 禁用国外 QUIC 流量（默认不启用，如果想启用请删除前面的#号注释）
+  - AND,((NETWORK,UDP),(DST-PORT,443),(NOT,((OR,((RULE-SET,cn),(RULE-SET,cn_ip,no-resolve)))))),REJECT
 
-  # 代理规则（域名）
+  # 代理规则（非IP类）
   - RULE-SET,ai,AI
   - RULE-SET,youtube,YouTube
   - RULE-SET,googlefcm,FCM
@@ -436,13 +417,14 @@ rules:
   - RULE-SET,twitter,Twitter
   - RULE-SET,instagram,Instagram
   - RULE-SET,tiktok,TikTok
+  - RULE-SET,geolocation-!cn,默认代理   
 
-  # 代理规则（IP）
+  # 代理规则（IP类）
   - RULE-SET,google_ip,Google,no-resolve
   - RULE-SET,telegram_ip,Telegram,no-resolve
   - RULE-SET,twitter_ip,Twitter,no-resolve
 
   # 兜底规则
-  - RULE-SET,geolocation-!cn,默认代理
-  - RULE-SET,cn_ip,直连
+  - RULE-SET,cn_ip,直连 
+  - RULE-SET,private_ip,直连,no-resolve
   - MATCH,默认代理
