@@ -44,46 +44,36 @@ profile:
   - { name: '🇨🇳 直连 | 双栈', type: direct }
 
 # 国内外 DNS 定义
-chinaDNS:
-  &chinaDNS [
-    'https://dns.alidns.com/dns-query#DIRECT',
-    'https://doh.pub/dns-query#DIRECT',
-  ]
-foreignDNS:
-  &foreignDNS [
-    'https://dns.cloudflare.com/dns-query#默认代理',
-    'https://dns.google/dns-query#默认代理',
-  ]
+dns_common:
+  chinaDNS: &chinaDNS ['223.5.5.5#DIRECT', '119.29.29.29#DIRECT']
+  foreignDNS: &foreignDNS ['https://cloudflare-dns.com/dns-query#默认代理', 'https://dns.google/dns-query#默认代理']
+  defaultDNS: &defaultDNS ['114.114.114.114#DIRECT', 'tls://223.5.5.5#DIRECT', 'https://1.12.12.12/dns-query#DIRECT']
+  proxyServerDNS:
+    &proxyServerDNS ['114.114.114.114#DIRECT', 'tls://223.5.5.5#DIRECT', 'https://doh.pub/dns-query#DIRECT']
 
 dns:
   enable: true
   ipv6: true
-  listen: :1053
-  cache-algorithm: arc
   use-hosts: true
+  cache-algorithm: arc
   use-system-hosts: true
   enhanced-mode: fake-ip
-  fake-ip-range: 198.18.0.1/16
-  fake-ip-range-v6: 'fc00::/18'
-  fake-ip-filter:
-    - 'rule-set:private'
-    - 'rule-set:fakeip_filter'
-  proxy-server-nameserver: *chinaDNS
-  default-nameserver:
-    - '223.5.5.5'
-    - '119.29.29.29'
+  fake-ip-range: 198.18.0.1/15
+  fake-ip-range6: 2001:2::1/48
+  fake-ip-filter: ['rule-set:private', 'rule-set:fakeip_filter', 'rule-set:cn', 'rule-set:googlefcm']
+  default-nameserver: *defaultDNS
+  proxy-server-nameserver: *proxyServerDNS
   nameserver: *foreignDNS
   nameserver-policy:
+    'rule-set:private': 'system'
+    'rule-set:douyin': ['180.184.1.1', '180.184.2.2']
     'rule-set:cn': *chinaDNS
-  direct-nameserver:
-    - 'system'
-    - '223.5.5.5'
-    - '119.29.29.29'
+  direct-nameserver: *chinaDNS
+  direct-nameserver-follow-policy: true
 
 hosts:
-  'dns.alidns.com': ['223.5.5.5', '223.6.6.6']
   'doh.pub': ['1.12.12.12', '120.53.53.53']
-  'dns.cloudflare.com': ['1.1.1.1', '1.0.0.1']
+  'cloudflare-dns.com': ['1.1.1.1', '1.0.0.1']
   'dns.google': ['8.8.8.8', '8.8.4.4']
 
   # 解决谷歌商店无法下载的问题
@@ -92,6 +82,8 @@ hosts:
   # 屏蔽哔哩哔哩PCDN，解决访问视频卡顿问题
   '+.mcdn.bilivideo.com': ['0.0.0.0']
   '+.mcdn.bilivideo.cn': ['0.0.0.0']
+  '+.edge.mountaintoys.cn': ['0.0.0.0']
+  '+.h2.smtcdns.net': ['0.0.0.0']
 
 ntp:
   enable: true
