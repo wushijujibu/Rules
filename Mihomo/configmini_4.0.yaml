@@ -400,7 +400,6 @@ rules:
   
   # emby特定 
   - RULE-SET,embylist_domain,直连
-  - DOMAIN-SUFFIX,emby.wtf,新加坡
 
   # 广告拦截
   - RULE-SET,adblockmihomolite,广告拦截
