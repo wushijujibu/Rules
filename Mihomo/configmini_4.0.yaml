@@ -134,7 +134,7 @@ rule-providers:
   ai:
     <<: *rp_domain
     format: mrs
-    url: 'https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/category-ai-!cn.mrs'
+    url: 'https://fastly.jsdelivr.net/gh/appshubcc/bett-rules@meta/geo/geosite/category-ai-!cn.mrs'
     path: './ruleset/ai.mrs'
   youtube:
     <<: *rp_domain
@@ -191,20 +191,15 @@ rule-providers:
     format: mrs
     url: 'https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/geolocation-!cn.mrs'
     path: './ruleset/geolocation-!cn.mrs'
-  cn_additional:
-    <<: *rp_domain
-    format: mrs
-    url: 'https://static-file-global.353355.xyz/rules/cn-additional-list.mrs'
-    path: './ruleset/cn-additional-list.mrs'
   cn:
     <<: *rp_domain
     format: mrs
-    url: 'https://static-file-global.353355.xyz/rules/cn-additional-list.mrs'
+    url: 'https://fastly.jsdelivr.net/gh/appshubcc/bett-rules@meta/geo/geosite/cn.mrs'
     path: './ruleset/cn.mrs'
   cn_ip:
     <<: *rp_ip
     format: mrs
-    url: 'https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geoip/cn.mrs'
+    url: 'https://fastly.jsdelivr.net/gh/appshubcc/bett-rules@meta/geo/geoip/cn.mrs'
     path: './ruleset/cn_ip.mrs'
   tiktok:
     <<: *rp_domain
@@ -216,7 +211,12 @@ rule-providers:
     format: mrs
     url: 'https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/instagram.mrs'
     path: './ruleset/instagram.mrs'
-
+  douyin:
+    <<: *rp_domain
+    url: 'https://fastly.jsdelivr.net/gh/appshubcc/bett-rules@meta/geo/geosite/douyin.mrs'
+    path: './ruleset/douyin.mrs'
+    path-in-bundle: 'geo/geosite/douyin.mrs'
+    
 # --- 策略组 (Proxy Groups) ---
 
 # 策略组通用配置
@@ -444,6 +444,5 @@ rules:
 
   # 兜底规则
   - RULE-SET,geolocation-!cn,默认代理
-  - RULE-SET,cn_additional,直连
   - RULE-SET,cn_ip,直连
   - MATCH,默认代理
